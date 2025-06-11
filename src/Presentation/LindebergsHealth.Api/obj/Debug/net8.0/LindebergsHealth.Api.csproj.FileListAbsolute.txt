@@ -37,3 +37,4 @@
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Api/obj/Debug/net8.0/LindebergsHealth.Api.pdb
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Api/obj/Debug/net8.0/LindebergsHealth.Api.genruntimeconfig.cache
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Api/obj/Debug/net8.0/ref/LindebergsHealth.Api.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Api/obj/Debug/net8.0/LindebergsHealth.Api.sourcelink.json

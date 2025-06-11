@@ -13,3 +13,4 @@
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/refint/LindebergsHealth.Application.dll
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.pdb
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/ref/LindebergsHealth.Application.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.sourcelink.json

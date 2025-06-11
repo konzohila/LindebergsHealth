@@ -1029,3 +1029,4 @@
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Web/obj/Debug/net8.0/refint/LindebergsHealth.Web.dll
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Web/obj/Debug/net8.0/LindebergsHealth.Web.pdb
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Web/obj/Debug/net8.0/ref/LindebergsHealth.Web.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Web/obj/Debug/net8.0/LindebergsHealth.Web.sourcelink.json
