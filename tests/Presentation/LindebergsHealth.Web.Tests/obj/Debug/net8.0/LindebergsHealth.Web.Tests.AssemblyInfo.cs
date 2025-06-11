@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LindebergsHealth.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea71ed22e931666e2f3b548a37a59389094df54")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8adef9bed9128c4c69ff4850a52d17a6143b2777")]
 [assembly: System.Reflection.AssemblyProductAttribute("LindebergsHealth.Web.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LindebergsHealth.Web.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

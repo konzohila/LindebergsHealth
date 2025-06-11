@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "LindebergsHealth.Web",
   "resources": {
-    "hash": "sha256-94WPg+KvMDggCQGO0AjOu3HV+KGzO3L2eo4zP6ROQQo=",
+    "hash": "sha256-O36CX4CqW+U6ZrYjIq75rh9pvSfTsX0kggLTr9ZPPE0=",
     "jsModuleNative": {
       "dotnet.native.8.0.16.77m6l7jiy7.js": "sha256-RiGT44TFZmHOY+Oqvb8o8r+BJVWex6+dPxFxrOiWvFY="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-Im6xq+lOse4P/VnAyrA3hwPstV67V5dB0EwQWcjipyE=",
       "netstandard.wasm": "sha256-PK0GLtj6kQVtZPzq0FZlnSdHh7geujg80LqKdJXA4pI=",
       "System.Private.CoreLib.wasm": "sha256-gEwccs7GbRSPGmeWBOKxNroYfyM+mZ7hqbP3ki1iwX0=",
-      "LindebergsHealth.Web.wasm": "sha256-MiRMQhDuoFnZcJNRBMb7uzEEUBbkaFohPh7dnYgG/Xg="
+      "LindebergsHealth.Web.wasm": "sha256-j8bexbB1qQjKik/Hf2ofKRkVJrzxlWIC1XMrTk+u5jA="
     },
     "pdb": {
-      "LindebergsHealth.Web.pdb": "sha256-BP+4t8XjQPdPCR+5AkJBlFCMxyTDdLhH75Q4vV7RUhI="
+      "LindebergsHealth.Web.pdb": "sha256-/YcCcDuXSNWOULmXrr+CA7s2IAZxqXeE3mW0jqPYEKg="
     }
   },
   "cacheBootResources": true,
