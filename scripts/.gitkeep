@@ -1,0 +1,7 @@
+# Entwicklungs- und Deployment-Skripte
+
+Dieser Ordner enthält:
+- Setup Skripte für Entwicklungsumgebung
+- Datenbank Migration Skripte
+- Deployment Automatisierung
+- Backup und Wartungsskripte 

@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5414B397-B56C-46C8-9349-DC62145E003E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{6F0A0642-4A6F-430A-BB19-4DF9D28571FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Domain", "src\Business\LindebergsHealth.Domain\LindebergsHealth.Domain.csproj", "{F59F0515-838C-4E27-813E-D905B2F3E128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Application", "src\Business\LindebergsHealth.Application\LindebergsHealth.Application.csproj", "{90A9CE7C-6E98-4139-8D84-E2061133ED85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{9D65A077-CBE9-4DD7-A124-62EB24AE5B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.DataAccess", "src\DataAccess\LindebergsHealth.DataAccess\LindebergsHealth.DataAccess.csproj", "{D87F931E-A0BD-4AA9-AED0-551B17A06279}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{73297FB1-DD34-4C9D-9C7E-CB16A086880D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Api", "src\Presentation\LindebergsHealth.Api\LindebergsHealth.Api.csproj", "{D784448E-EBA3-4471-87CB-23B9C680481A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Web", "src\Presentation\LindebergsHealth.Web\LindebergsHealth.Web.csproj", "{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F59F0515-838C-4E27-813E-D905B2F3E128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59F0515-838C-4E27-813E-D905B2F3E128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59F0515-838C-4E27-813E-D905B2F3E128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59F0515-838C-4E27-813E-D905B2F3E128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A9CE7C-6E98-4139-8D84-E2061133ED85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A9CE7C-6E98-4139-8D84-E2061133ED85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A9CE7C-6E98-4139-8D84-E2061133ED85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A9CE7C-6E98-4139-8D84-E2061133ED85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87F931E-A0BD-4AA9-AED0-551B17A06279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87F931E-A0BD-4AA9-AED0-551B17A06279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87F931E-A0BD-4AA9-AED0-551B17A06279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87F931E-A0BD-4AA9-AED0-551B17A06279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D784448E-EBA3-4471-87CB-23B9C680481A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D784448E-EBA3-4471-87CB-23B9C680481A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D784448E-EBA3-4471-87CB-23B9C680481A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D784448E-EBA3-4471-87CB-23B9C680481A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F0A0642-4A6F-430A-BB19-4DF9D28571FE} = {5414B397-B56C-46C8-9349-DC62145E003E}
+		{F59F0515-838C-4E27-813E-D905B2F3E128} = {6F0A0642-4A6F-430A-BB19-4DF9D28571FE}
+		{90A9CE7C-6E98-4139-8D84-E2061133ED85} = {6F0A0642-4A6F-430A-BB19-4DF9D28571FE}
+		{9D65A077-CBE9-4DD7-A124-62EB24AE5B18} = {5414B397-B56C-46C8-9349-DC62145E003E}
+		{D87F931E-A0BD-4AA9-AED0-551B17A06279} = {9D65A077-CBE9-4DD7-A124-62EB24AE5B18}
+		{73297FB1-DD34-4C9D-9C7E-CB16A086880D} = {5414B397-B56C-46C8-9349-DC62145E003E}
+		{D784448E-EBA3-4471-87CB-23B9C680481A} = {73297FB1-DD34-4C9D-9C7E-CB16A086880D}
+		{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04} = {73297FB1-DD34-4C9D-9C7E-CB16A086880D}
+	EndGlobalSection
+EndGlobal

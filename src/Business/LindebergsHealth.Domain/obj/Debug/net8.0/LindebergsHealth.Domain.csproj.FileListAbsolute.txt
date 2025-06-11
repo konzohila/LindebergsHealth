@@ -1,0 +1,11 @@
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/bin/Debug/net8.0/LindebergsHealth.Domain.deps.json
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/bin/Debug/net8.0/LindebergsHealth.Domain.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/bin/Debug/net8.0/LindebergsHealth.Domain.pdb
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.AssemblyInfoInputs.cache
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.AssemblyInfo.cs
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.csproj.CoreCompileInputs.cache
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/refint/LindebergsHealth.Domain.dll
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/LindebergsHealth.Domain.pdb
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Domain/obj/Debug/net8.0/ref/LindebergsHealth.Domain.dll
