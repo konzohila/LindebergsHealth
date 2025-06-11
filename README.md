@@ -5,6 +5,9 @@
 ## 🚀 Quick Start
 
 ```bash
+# Azure Health Check (NEW! ✨)
+./scripts/azure-health-check.sh
+
 # Solution bauen
 dotnet build
 
@@ -14,6 +17,18 @@ dotnet run --project src/Presentation/LindebergsHealth.Api
 # Web UI starten
 dotnet run --project src/Presentation/LindebergsHealth.Web
 ```
+
+### 🤖 **AI-Powered Development** ✨
+
+**Azure MCP Server** ist integriert! GitHub Copilot kann direkt mit Azure interagieren:
+
+```
+💬 "Show Web App status for LindebergsHealth"
+💬 "List all resources in LindebergsRG" 
+💬 "Check deployment logs for latest release"
+```
+
+**Production App:** [lindebergs-api-win.azurewebsites.net](https://lindebergs-api-win.azurewebsites.net)
 
 ## 📁 Projektstruktur
 

@@ -234,6 +234,8 @@ Vor **JEDEM** Commit:
 - [ ] **Build:** Solution kompiliert ohne Warnings
 - [ ] **Architecture:** 3-Schichten-Struktur eingehalten
 - [ ] **SOLID:** Principles befolgt
+- [ ] **Azure Health:** Resources via MCP Server geprüft ✨
+- [ ] **Performance:** Monitoring via Azure MCP validiert ✨
 - [ ] **Documentation:** Aktualisiert
 - [ ] **Commit Message:** Englisch, Conventional Format
 - [ ] **Code Review:** Self-Review gemacht
