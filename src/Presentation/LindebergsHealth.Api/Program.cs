@@ -6,7 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Azure AD Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+    .AddMicrosoftIdentityWebApi(options =>
+    {
+        builder.Configuration.Bind("AzureAd", options);
+        options.TokenValidationParameters.ValidateAudience = false; // Für Development/Testing
+        options.TokenValidationParameters.ValidateIssuer = true;
+    },
+    options => { builder.Configuration.Bind("AzureAd", options); });
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -16,7 +22,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "LindebergsHealth API", Version = "v1" });
     
-    // Add OAuth2 configuration for Swagger UI
+    // Add OAuth2 configuration for Azure AD
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
         Type = SecuritySchemeType.OAuth2,
@@ -25,10 +31,9 @@ builder.Services.AddSwaggerGen(c =>
             Implicit = new OpenApiOAuthFlow
             {
                 AuthorizationUrl = new Uri($"https://login.microsoftonline.com/{builder.Configuration["AzureAd:TenantId"]}/oauth2/v2.0/authorize"),
-                TokenUrl = new Uri($"https://login.microsoftonline.com/{builder.Configuration["AzureAd:TenantId"]}/oauth2/v2.0/token"),
                 Scopes = new Dictionary<string, string>
                 {
-                    { $"api://{builder.Configuration["AzureAd:ClientId"]}/access_as_user", "Access API as User" }
+                    {"api://ed8c66d4-1b5a-401e-9108-f7281ca84447/access_as_user", "Access API as user"}
                 }
             }
         }
@@ -39,13 +44,9 @@ builder.Services.AddSwaggerGen(c =>
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "oauth2"
-                }
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
             },
-            new[] { $"api://{builder.Configuration["AzureAd:ClientId"]}/access_as_user" }
+            new[] { "api://ed8c66d4-1b5a-401e-9108-f7281ca84447/access_as_user" }
         }
     });
 });
@@ -59,9 +60,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "LindebergsHealth API V1");
-        c.OAuthClientId(builder.Configuration["AzureAd:ClientId"]);
+        
+        // Configure OAuth2 for Swagger UI
+        c.OAuthClientId("ed8c66d4-1b5a-401e-9108-f7281ca84447");
         c.OAuthUsePkce();
-        c.OAuthScopeSeparator(" ");
+        c.OAuthScopes("api://ed8c66d4-1b5a-401e-9108-f7281ca84447/access_as_user");
     });
 }
 
