@@ -9,7 +9,7 @@ on:
 env:
   DOTNET_VERSION: '8.0.x'
   API_PROJECT_PATH: 'src/Presentation/LindebergsHealth.Api'
-  WEB_PROJECT_PATH: 'src/Presentation/LindebergsHealth.Web'
+  WEB_PROJECT_PATH: 'src/Presentation/LindebergsHealth.BlazorApp'
 
 jobs:
   build-and-test:
@@ -55,7 +55,7 @@ jobs:
           --configuration Release \
           --output ./api-staging
           
-    - name: 📦 Build Web for deployment  
+    - name: 📦 Build BlazorApp for deployment  
       run: |
         dotnet publish ${{ env.WEB_PROJECT_PATH }} \
           --configuration Release \
@@ -69,11 +69,11 @@ jobs:
     #     publish-profile: ${{ secrets.AZURE_API_STAGING_PUBLISH_PROFILE }}
     #     package: './api-staging'
     
-    # - name: 🌐 Deploy Web to Azure Staging
+    # - name: 🌐 Deploy BlazorApp to Azure Staging
     #   uses: azure/webapps-deploy@v2  
     #   with:
-    #     app-name: 'lindebergshealth-web-staging'
-    #     publish-profile: ${{ secrets.AZURE_WEB_STAGING_PUBLISH_PROFILE }}
+    #     app-name: 'lindebergshealth-blazorapp-staging'
+    #     publish-profile: ${{ secrets.AZURE_BLAZORAPP_STAGING_PUBLISH_PROFILE }}
     #     package: './web-staging'
     
     - name: ✅ Staging deployment complete
