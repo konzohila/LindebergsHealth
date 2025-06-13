@@ -8,6 +8,7 @@
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.AssemblyInfoInputs.cache
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.AssemblyInfo.cs
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.csproj.CoreCompileInputs.cache
+/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.sourcelink.json
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/Lindeber.6EBAEF21.Up2Date
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/LindebergsHealth.Application.dll
 /Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Business/LindebergsHealth.Application/obj/Debug/net8.0/refint/LindebergsHealth.Application.dll

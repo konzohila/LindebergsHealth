@@ -1,0 +1,633 @@
+# LindebergsHealth - .gitignore
+# Umfassende Ausschlüsse für .NET/Blazor/Azure Projekt
+
+## Visual Studio / Visual Studio Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+## .NET Build Outputs
+bin/
+obj/
+out/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!packages/build/
+*.nuget.props
+*.nuget.targets
+
+## MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## NUNIT
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+## Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+## Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## StyleCop
+StyleCopReport.xml
+
+## Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## Chutzpah Test files
+_Chutzpah*
+
+## Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+## Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+## Visual Studio Trace Files
+*.e2e
+
+## TFS 2012 Local Workspace
+$tf/
+
+## Guidance Automation Toolkit
+*.gpState
+
+## ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## TeamCity
+_TeamCity*
+
+## DotCover
+*.dotCover
+
+## AxoCover
+.axoCover/*
+!.axoCover/settings.json
+
+## Coverlet
+coverage*.json
+coverage*.xml
+coverage*.info
+
+## Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+## NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+## MightyMoose
+*.mm.*
+AutoTest.Net/
+
+## Web workbench (sass)
+.sass-cache/
+
+## Installshield output folder
+[Ee]xpress/
+
+## DocProject
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/Html2
+DocProject/Help/html
+
+## Click-Once directory
+publish/
+
+## Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+
+## Microsoft Azure Web App publish settings
+PublishScripts/
+
+## NuGet Packages
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+!tools/packages.config
+
+## Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+## Microsoft Azure Emulator
+ecf/
+rcf/
+
+## Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+## Visual Studio cache files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Mono auto generated files
+mono_crash.*
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Folder config file
+Desktop.ini
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## VS Code directories
+.vscode/
+
+## Mac
+.DS_Store
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## CodeRush personal settings
+.cr/personal
+
+## Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+## Cake
+tools/**
+!tools/packages.config
+
+## Tabs Studio
+*.tss
+
+## Telerik's JustMock configuration file
+*.jmconfig
+
+## BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+## OpenCover UI analysis results
+OpenCover/
+
+## Azure Stream Analytics local run output
+ASALocalRun/
+
+## MSBuild Binary and Structured Log
+*.binlog
+
+## NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+## MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+## Local History for Visual Studio
+.localhistory/
+
+## BeatPulse healthcheck temp database
+healthchecksdb
+
+## Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+## Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+## Fody - auto-generated XML schema
+FodyWeavers.xsd
+
+####################
+# Blazor Specific
+####################
+
+## Blazor WebAssembly
+**/wwwroot/dist/
+**/wwwroot/_framework/
+**/wwwroot/_content/
+**/wwwroot/service-worker-assets.js
+
+## Blazor Server
+**/wwwroot/lib/
+
+####################
+# Azure Specific
+####################
+
+## Azure Functions
+local.settings.json
+.azure/
+.azurefunctions/
+
+## Azure DevOps
+.vsts-ci.yml
+
+## ARM Templates (keep templates, ignore generated files)
+*.parameters.local.json
+*.parameters.dev.json
+*.parameters.test.json
+*.parameters.prod.json
+
+####################
+# Environment & Secrets
+####################
+
+## Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+
+## Application settings (lokale Entwicklung)
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/appsettings.*.local.json
+
+## Connection strings und Secrets
+secrets.json
+*.secrets.json
+connectionstrings.json
+
+## Azure CLI
+.azure/
+
+####################
+# Node.js (für Blazor WASM Tools)
+####################
+
+## Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+## Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+## Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+## nyc test coverage
+.nyc_output
+
+## Grunt intermediate storage
+.grunt
+
+## Bower dependency directory
+bower_components
+
+## node-waf configuration
+.lock-wscript
+
+## Compiled binary addons
+build/Release
+
+## Dependency directories
+node_modules/
+jspm_packages/
+
+## TypeScript cache
+*.tsbuildinfo
+
+## Optional npm cache directory
+.npm
+
+## Optional eslint cache
+.eslintcache
+
+## Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+## Optional REPL history
+.node_repl_history
+
+## Output of 'npm pack'
+*.tgz
+
+## Yarn Integrity file
+.yarn-integrity
+
+## dotenv environment variables file
+.env
+.env.test
+
+## parcel-bundler cache
+.cache
+.parcel-cache
+
+## Next.js build output
+.next
+
+## Nuxt.js build / generate output
+.nuxt
+dist
+
+## Gatsby files
+.cache/
+public
+
+## Storybook build outputs
+.out
+.storybook-out
+
+## Temporary folders
+tmp/
+temp/
+
+####################
+# Database
+####################
+
+## SQLite
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+
+## SQL Server
+*.mdf
+*.ldf
+
+####################
+# Documentation
+####################
+
+## Generated documentation
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+
+## Sphinx documentation
+docs/_build/
+
+####################
+# Testing
+####################
+
+## Test results
+TestResults/
+test-results/
+coverage-results/
+
+## Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+####################
+# Certificates & Keys
+####################
+
+## SSL Certificates
+*.pfx
+*.p12
+*.key
+*.crt
+*.cer
+*.pem
+
+## SSH Keys
+id_rsa
+id_rsa.pub
+*.ppk
+
+####################
+# Logs & Monitoring
+####################
+
+## Application logs
+*.log
+logs/
+log/
+
+## IIS logs
+iisexpress/
+
+####################
+# Backup files
+####################
+
+## Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+####################
+# IDE specific
+####################
+
+## Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+## Atom
+.atom/
+
+## Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+## Vim
+*.swp
+*.swo
+*~
+
+####################
+# OS specific
+####################
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+####################
+# Custom Project Excludes
+####################
+
+## Lokale Entwicklungsdateien
+dev-notes.md
+todo.md
+scratch.md
+
+## Temporäre Uploads
+uploads/temp/
+temp-files/
+
+## Generated API clients
+**/Generated/
+**/generated/
+
+## Package manager lock files (optional - team decision)
+# package-lock.json
+# yarn.lock
+
+####################
+# Keep these files (Whitelist)
+####################
+
+## Wichtige Konfigurationsdateien behalten
+!.gitignore
+!.editorconfig
+!.gitattributes
+!global.json
+!Directory.Build.props
+!Directory.Build.targets
+!nuget.config
+
+## Docker files behalten
+!Dockerfile
+!docker-compose*.yml
+!.dockerignore
+
+## CI/CD files behalten
+!.github/
+!azure-pipelines.yml
+!.azure/
+
+## Documentation behalten
+!docs/
+!README.md
+!CHANGELOG.md
+!LICENSE 
