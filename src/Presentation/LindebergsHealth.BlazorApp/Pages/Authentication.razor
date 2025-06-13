@@ -1,0 +1,113 @@
+﻿@page "/authentication/{action}"
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+
+<RemoteAuthenticatorView Action="@Action">
+    <LoggingIn>
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Anmeldung läuft...</span>
+            </div>
+            <p>Sie werden angemeldet...</p>
+        </div>
+    </LoggingIn>
+    <LogInFailed>
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Anmeldung fehlgeschlagen</h4>
+            <p>Es gab ein Problem bei der Anmeldung. Dies kann passieren, wenn:</p>
+            <ul>
+                <li>Die Anmeldung in einem Popup blockiert wurde</li>
+                <li>Browser-Cache-Probleme vorliegen</li>
+                <li>Die Sitzung abgelaufen ist</li>
+            </ul>
+            <hr>
+            <button class="btn btn-primary" @onclick="HandleLoginError">
+                Cache leeren und erneut versuchen
+            </button>
+            <a class="btn btn-secondary ms-2" href="/">Zur Startseite</a>
+        </div>
+    </LogInFailed>
+    <LogOut>
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Abmeldung läuft...</span>
+            </div>
+            <p>Sie werden abgemeldet...</p>
+        </div>
+    </LogOut>
+    <LogOutFailed>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Abmeldung fehlgeschlagen</h4>
+            <p>Es gab ein Problem bei der Abmeldung.</p>
+            <button class="btn btn-primary" @onclick="HandleLogoutError">
+                Cache leeren und zur Startseite
+            </button>
+        </div>
+    </LogOutFailed>
+    <LogOutSucceeded>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Erfolgreich abgemeldet</h4>
+            <p>Sie wurden erfolgreich abgemeldet.</p>
+            <a class="btn btn-primary" href="/">Zur Startseite</a>
+        </div>
+    </LogOutSucceeded>
+    <UserProfile>
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Profil wird geladen...</span>
+            </div>
+            <p>Benutzerprofil wird geladen...</p>
+        </div>
+    </UserProfile>
+</RemoteAuthenticatorView>
+
+@code {
+    [Parameter] public string? Action { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Robuste Prüfung, ob wir in einem Popup sind
+            var isInPopup = await JSRuntime.InvokeAsync<bool>("authHelper.isInPopup");
+            if (isInPopup)
+            {
+                Console.WriteLine("Authentication läuft in einem Popup - das kann Probleme verursachen");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fehler beim Prüfen des Popup-Status: {ex.Message}");
+            // Fehler ignorieren und fortfahren
+        }
+    }
+
+    private async Task HandleLoginError()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("authHelper.handleAuthError");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fehler beim Behandeln des Login-Fehlers: {ex.Message}");
+            Navigation.NavigateTo("/", forceLoad: true);
+        }
+    }
+
+    private async Task HandleLogoutError()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("authHelper.clearMsalCache");
+            await Task.Delay(500);
+            Navigation.NavigateTo("/", forceLoad: true);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fehler beim Behandeln des Logout-Fehlers: {ex.Message}");
+            Navigation.NavigateTo("/", forceLoad: true);
+        }
+    }
+}

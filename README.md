@@ -15,7 +15,7 @@ dotnet build
 dotnet run --project src/Presentation/LindebergsHealth.Api
 
 # Web UI starten
-dotnet run --project src/Presentation/LindebergsHealth.Web
+dotnet run --project src/Presentation/LindebergsHealth.BlazorApp
 ```
 
 ### 🤖 **AI-Powered Development** ✨
@@ -42,4 +42,7 @@ dotnet run --project src/Presentation/LindebergsHealth.Web
 
 ## 📖 Dokumentation
 
-Detaillierte Architektur und Entwicklungsdokumentation: **[docs/README.md](docs/README.md)** 
+- **[Projektdokumentation](docs/README.md)** - Detaillierte Architektur und Setup
+- **[Authentifizierung](docs/azure/authentication.md)** - Azure AD & MSAL Konfiguration
+- **[Development Guidelines](docs/development/development-guidelines.md)** - Coding Standards
+- **[Branching Strategy](docs/development/branching-strategy.md)** - Git Workflow 

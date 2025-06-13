@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Api", "src\Presentation\LindebergsHealth.Api\LindebergsHealth.Api.csproj", "{D784448E-EBA3-4471-87CB-23B9C680481A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Web", "src\Presentation\LindebergsHealth.Web\LindebergsHealth.Web.csproj", "{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.BlazorApp", "src\Presentation\LindebergsHealth.BlazorApp\LindebergsHealth.BlazorApp.csproj", "{B7ED7EFA-1AE6-4E4C-BA79-B44C843F4C04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A02D8451-DAFB-4130-A500-31659FD703BA}"
 EndProject
@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Api.Tests", "tests\Presentation\LindebergsHealth.Api.Tests\LindebergsHealth.Api.Tests.csproj", "{2AD224B4-94C1-46F5-8C83-9B85F3A407AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.Web.Tests", "tests\Presentation\LindebergsHealth.Web.Tests\LindebergsHealth.Web.Tests.csproj", "{827B214F-F0A1-4DB8-84B5-D6C82E4F7EBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LindebergsHealth.BlazorApp.Tests", "tests\Presentation\LindebergsHealth.BlazorApp.Tests\LindebergsHealth.BlazorApp.Tests.csproj", "{827B214F-F0A1-4DB8-84B5-D6C82E4F7EBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

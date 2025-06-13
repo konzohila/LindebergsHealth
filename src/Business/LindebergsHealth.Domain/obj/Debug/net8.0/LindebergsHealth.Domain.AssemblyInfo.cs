@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LindebergsHealth.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8adef9bed9128c4c69ff4850a52d17a6143b2777")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a913e5ae47d6f1ec4930b5fe598ec69716e7241c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LindebergsHealth.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LindebergsHealth.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
