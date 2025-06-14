@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -10,11 +10,11 @@ namespace LindebergsHealth.Domain.Tests.Entities
         public void NewGehalt_HasValidDefaults()
         {
             var gehalt = new Gehalt();
-            Assert.AreEqual(0m, gehalt.Zulagen);
-            Assert.AreEqual(0m, gehalt.Abzuege);
-            Assert.AreEqual(0m, gehalt.Nettogehalt);
-            Assert.AreEqual(0m, gehalt.Steuern);
-            Assert.AreEqual(0m, gehalt.Sozialversicherung);
+            Assert.That(gehalt.Zulagen, Is.EqualTo(0m));
+            Assert.That(gehalt.Abzuege, Is.EqualTo(0m));
+            Assert.That(gehalt.Nettogehalt, Is.EqualTo(0m));
+            Assert.That(gehalt.Steuern, Is.EqualTo(0m));
+            Assert.That(gehalt.Sozialversicherung, Is.EqualTo(0m));
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
                 Sozialversicherung = 20m
             };
             gehalt.Nettogehalt = gehalt.Zulagen - gehalt.Abzuege - gehalt.Steuern - gehalt.Sozialversicherung;
-            Assert.AreEqual(100m, gehalt.Nettogehalt);
+            Assert.That(gehalt.Nettogehalt, Is.EqualTo(100m));
         }
     }
 }

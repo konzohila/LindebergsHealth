@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -11,7 +11,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
         {
             var adresse = new Adresse();
             Assert.IsFalse(adresse.IsDeleted);
-            Assert.AreEqual("Deutschland", adresse.Land);
+            Assert.That(adresse.Land, Is.EqualTo("Deutschland"));
             Assert.IsEmpty(adresse.Strasse);
             Assert.IsEmpty(adresse.Hausnummer);
         }

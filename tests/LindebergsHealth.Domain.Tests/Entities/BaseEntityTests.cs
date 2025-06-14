@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using LindebergsHealth.Domain.Entities;
 using System;
+using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -11,8 +11,8 @@ namespace LindebergsHealth.Domain.Tests.Entities
         public void NewBaseEntity_HasValidDefaults()
         {
             var entity = new TestEntity();
-            Assert.AreNotEqual(Guid.Empty, entity.Id);
-            Assert.AreEqual(false, entity.IstGelöscht);
+            Assert.That(entity.Id, Is.Not.EqualTo(Guid.Empty));
+            Assert.That(entity.IstGelöscht, Is.EqualTo(false));
             Assert.IsNull(entity.GelöschtAm);
             Assert.IsNull(entity.GelöschtVon);
             Assert.IsNull(entity.LöschGrund);
@@ -27,8 +27,8 @@ namespace LindebergsHealth.Domain.Tests.Entities
             entity.SoftDelete(userId, "Test");
             Assert.IsTrue(entity.IstGelöscht);
             Assert.IsNotNull(entity.GelöschtAm);
-            Assert.AreEqual(userId, entity.GelöschtVon);
-            Assert.AreEqual("Test", entity.LöschGrund);
+            Assert.That(entity.GelöschtVon, Is.EqualTo(userId));
+            Assert.That(entity.LöschGrund, Is.EqualTo("Test"));
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
             var userId = Guid.NewGuid();
             entity.MarkAsModified(userId);
             Assert.IsNotNull(entity.GeändertAm);
-            Assert.AreEqual(userId, entity.GeändertVon);
+            Assert.That(entity.GeändertVon, Is.EqualTo(userId));
         }
 
         private class TestEntity : BaseEntity { }

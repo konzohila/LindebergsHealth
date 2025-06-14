@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using LindebergsHealth.Domain.Entities;
 using System;
+using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {

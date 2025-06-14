@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using LindebergsHealth.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Configuration.EnvironmentVariables;
-using LindebergsHealth.Infrastructure.Data;
+using Microsoft.Extensions.Configuration.Json;
 using NUnit.Framework;
 
 namespace LindebergsHealth.Infrastructure.Tests.Integration

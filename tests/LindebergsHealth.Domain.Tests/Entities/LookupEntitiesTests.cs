@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -13,7 +13,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
         //     Assert.IsNotNull(lookup.Name);
         //     Assert.IsFalse(lookup.IsDeleted);
         // }
-        
+
         private class Geschlecht
         {
             public Guid Id { get; set; } = Guid.NewGuid();

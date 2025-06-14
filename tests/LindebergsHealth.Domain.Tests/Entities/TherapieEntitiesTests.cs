@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -13,7 +13,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
             Assert.IsNotNull(therapie.Name);
             Assert.IsNotNull(therapie.Beschreibung);
         }
-        
+
         private class Therapie : BaseEntity
         {
             public string Name { get; set; } = string.Empty;

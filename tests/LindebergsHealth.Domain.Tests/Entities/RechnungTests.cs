@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using LindebergsHealth.Domain.Entities;
 using System;
+using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -13,8 +13,8 @@ namespace LindebergsHealth.Domain.Tests.Entities
             var rechnung = new Rechnung();
             Assert.IsFalse(rechnung.IsDeleted);
             Assert.IsNotNull(rechnung.Beschreibung);
-            Assert.AreEqual(0m, rechnung.Steuerbetrag);
-            Assert.AreEqual(0m, rechnung.Gesamtbetrag);
+            Assert.That(rechnung.Steuerbetrag, Is.EqualTo(0m));
+            Assert.That(rechnung.Gesamtbetrag, Is.EqualTo(0m));
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
                 Steuerbetrag = 19m
             };
             rechnung.Gesamtbetrag = rechnung.Betrag + rechnung.Steuerbetrag;
-            Assert.AreEqual(119m, rechnung.Gesamtbetrag);
+            Assert.That(rechnung.Gesamtbetrag, Is.EqualTo(119m));
         }
     }
 }

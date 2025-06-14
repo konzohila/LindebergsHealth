@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -13,7 +13,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
             Assert.IsNotNull(dokument.Titel);
             Assert.IsNotNull(dokument.Dateipfad);
         }
-        
+
         private class Dokument : BaseEntity
         {
             public string Titel { get; set; } = string.Empty;

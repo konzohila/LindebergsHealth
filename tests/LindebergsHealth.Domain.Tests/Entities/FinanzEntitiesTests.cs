@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -13,7 +13,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
             Assert.IsFalse(rechnung.IsDeleted);
             Assert.IsNotNull(rechnung.Beschreibung);
             var gehalt = new Gehalt();
-            Assert.AreEqual(0m, gehalt.Zulagen);
+            Assert.That(gehalt.Zulagen, Is.EqualTo(0m));
         }
     }
 }

@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -11,7 +11,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
         {
             var erw = new PatientErweiterung();
             Assert.IsNotNull(erw.Notizen);
-            Assert.AreEqual(Guid.Empty, erw.PatientId);
+            Assert.That(erw.PatientId, Is.EqualTo(Guid.Empty));
         }
     }
 }

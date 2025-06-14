@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using LindebergsHealth.Domain.Entities;
 using System;
+using LindebergsHealth.Domain.Entities;
+using NUnit.Framework;
 
 namespace LindebergsHealth.Domain.Tests.Entities
 {
@@ -14,7 +14,7 @@ namespace LindebergsHealth.Domain.Tests.Entities
             Assert.IsNotNull(serie.Name);
             Assert.IsNotNull(serie.Termine);
         }
-        
+
         private class Terminserie : BaseEntity
         {
             public string Name { get; set; } = string.Empty;
