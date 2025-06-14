@@ -375,8 +375,8 @@ public class LookupEntityConfiguration<T> : IEntityTypeConfiguration<T> where T 
 {
     public void Configure(EntityTypeBuilder<T> builder)
     {
-        builder.Property("Name").HasMaxLength(100).IsRequired();
-        builder.Property("Beschreibung").HasMaxLength(500);
+        builder.Property<string>("Name").HasMaxLength(100).IsRequired();
+        builder.Property<string>("Beschreibung").HasMaxLength(500);
         
         // Performance Index auf Name
         builder.HasIndex("Name").HasDatabaseName($"IX_{typeof(T).Name}_Name");
