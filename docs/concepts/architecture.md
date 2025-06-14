@@ -162,7 +162,7 @@ Presentation → Core ← Infrastructure
 
 ## 🧪 Testing-Strategie
 
-Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](../../testkonzept.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](../../development/development-guidelines.md).
+Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](../guides/testing.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](../guides/development.md).
 
 - Tests werden bei jedem Commit/PR automatisch ausgeführt (CI/CD, GitHub Actions).
 - Coverage-Philosophie: Qualität vor Quantität – getestet wird, wo Logik oder Fehleranfälligkeit besteht.

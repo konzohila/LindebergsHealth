@@ -31,3 +31,9 @@
 2. Integrationstests für Service-Layer und Datenbank
 3. API-Tests für die wichtigsten Endpunkte
 4. E2E-Tests für die wichtigsten User-Flows
+
+---
+
+## Weiterführende Dokumente
+- [Development Guidelines](development.md)
+- [Architekturüberblick](../concepts/architecture.md)

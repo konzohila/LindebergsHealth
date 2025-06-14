@@ -9,14 +9,14 @@ Diese Regeln sind **IMMER** zu befolgen - keine Ausnahmen!
 ## 📖 1. Dokumentation IMMER aktuell halten
 
 ### ✅ Bei jeder Änderung:
-- **README.md** updaten wenn Struktur/Setup sich ändert
+- **index.md** updaten wenn Struktur/Setup sich ändert
 - **API-Dokumentation** bei neuen Endpoints
 - **Architecture Decision Records (ADRs)** bei Design-Entscheidungen
 - **Code-Kommentare** für komplexe Business Logic
 - **Changelogs** für Breaking Changes
 
 ### 📝 Dokumentation-Checklist:
-- [ ] README.md aktualisiert?
+- [ ] index.md aktualisiert?
 - [ ] API-Docs generiert/aktualisiert?
 - [ ] Neue Features dokumentiert?
 - [ ] Breaking Changes beschrieben?

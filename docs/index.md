@@ -4,7 +4,7 @@
 
 ## 📁 Dokumentationsstruktur
 
-### 🏗️ [Architecture](architecture/)
+### 🏗️ [Architecture](concepts/architecture.md)
 *Systemarchitektur und Design-Entscheidungen*
 
 - **Clean Architecture** - 3-Schichten-Modell
@@ -22,8 +22,8 @@
 ### 👨‍💻 [Development](development/)
 *Entwicklungsrichtlinien und Workflows*
 
-- **[Development Guidelines](development/development-guidelines.md)** - Coding Standards
-- **[Branching Strategy](development/branching-strategy.md)** - Git Workflow
+- **[Development Guidelines](guides/development.md)** - Coding Standards
+- **[Branching Strategy](guides/branching-strategy.md)** - Git Workflow
 
 ## 🚀 Quick Start
 
@@ -98,7 +98,7 @@ dotnet run --project src/Presentation/LindebergsHealth.BlazorApp
 
 ## 🧪 Testing & Qualitätssicherung
 
-Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](docs/testkonzept.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](docs/development/development-guidelines.md).
+Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](guides/testing.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](guides/development.md).
 
 - Tests werden bei jedem Commit/PR automatisch ausgeführt (CI/CD, GitHub Actions).
 - Coverage-Philosophie: Qualität vor Quantität – getestet wird, wo Logik oder Fehleranfälligkeit besteht.
