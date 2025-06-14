@@ -485,13 +485,3 @@ Die Datenbankstruktur von Lindebergs Arztpraxis-Software ist:
 ✅ **Professionell** - Enterprise-Grade Architektur
 
 Die Datenbank bildet das solide Fundament für eine moderne, digitale Arztpraxis und unterstützt alle wichtigen Geschäftsprozesse von der Patientenaufnahme bis zur Abrechnung.
-
----
-
-## 📞 Support
-
-Bei Fragen zur Datenbankstruktur oder Erweiterungswünschen wenden Sie sich an das Entwicklungsteam.
-
-**Letzte Aktualisierung**: März 2024  
-**Version**: 1.0  
-**Status**: Produktionsreif 

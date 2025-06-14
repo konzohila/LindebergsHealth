@@ -1,0 +1,58 @@
+{
+  "testConfiguration": {
+    "parallelExecution": true,
+    "maxParallelThreads": 4,
+    "timeout": 30000,
+    "retryCount": 2,
+    "verboseOutput": true,
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "line": 80,
+      "branch": 70,
+      "function": 80,
+      "statement": 80
+    },
+    "testCategories": {
+      "unit": {
+        "pattern": "*.Tests.dll",
+        "timeout": 10000
+      },
+      "integration": {
+        "pattern": "*.Integration.Tests.dll",
+        "timeout": 30000
+      },
+      "performance": {
+        "pattern": "*.Performance.Tests.dll",
+        "timeout": 60000
+      }
+    },
+    "databases": {
+      "inMemory": {
+        "provider": "Microsoft.EntityFrameworkCore.InMemory",
+        "connectionString": "InMemoryDatabase"
+      },
+      "sqlite": {
+        "provider": "Microsoft.EntityFrameworkCore.Sqlite",
+        "connectionString": "Data Source=:memory:"
+      }
+    },
+    "logging": {
+      "level": "Information",
+      "includeScopes": true,
+      "console": {
+        "enabled": true,
+        "includeTimestamp": true
+      },
+      "file": {
+        "enabled": true,
+        "path": "TestResults/test-log.txt"
+      }
+    },
+    "reporting": {
+      "formats": ["trx", "html", "json"],
+      "outputPath": "TestResults",
+      "includeStackTrace": true,
+      "includeTestOutput": true
+    }
+  }
+} 
