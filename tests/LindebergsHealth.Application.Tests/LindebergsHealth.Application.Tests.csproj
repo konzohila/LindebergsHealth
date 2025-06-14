@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Business\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
-    <ProjectReference Include="..\..\..\src\Business\LindebergsHealth.Domain\LindebergsHealth.Domain.csproj" />
+    <ProjectReference Include="..\..\src\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
+    <ProjectReference Include="..\..\src\LindebergsHealth.Domain\LindebergsHealth.Domain.csproj" />
   </ItemGroup>
 
 </Project>
