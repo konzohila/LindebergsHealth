@@ -21,7 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "LindebergsHealth API", Version = "v1" });
-    
+
     // Add OAuth2 configuration for Azure AD
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
@@ -60,7 +60,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "LindebergsHealth API V1");
-        
+
         // Configure OAuth2 for Swagger UI
         c.OAuthClientId("ed8c66d4-1b5a-401e-9108-f7281ca84447");
         c.OAuthUsePkce();

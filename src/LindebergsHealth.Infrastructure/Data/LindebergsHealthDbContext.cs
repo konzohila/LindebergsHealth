@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using LindebergsHealth.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LindebergsHealth.Infrastructure.Data;
 
@@ -135,7 +135,7 @@ public class LindebergsHealthDbContext : DbContext
 
         // Alle Entity-Konfigurationen aus separaten Klassen anwenden
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(LindebergsHealthDbContext).Assembly);
-        
+
         // Seed Data laden
         SeedLookupData(modelBuilder);
     }
@@ -148,14 +148,14 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Mitarbeiter>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Vorname).HasMaxLength(100).IsRequired();
             entity.Property(e => e.Nachname).HasMaxLength(100).IsRequired();
             entity.Property(e => e.Email).HasMaxLength(255).IsRequired();
-            
+
             // Unique Constraints
             entity.HasIndex(e => e.Email).IsUnique().HasDatabaseName("IX_Mitarbeiter_Email_Unique");
-            
+
             // Performance Indizes
             entity.HasIndex(e => e.Nachname).HasDatabaseName("IX_Mitarbeiter_Nachname");
             entity.HasIndex(e => e.IsActive).HasDatabaseName("IX_Mitarbeiter_IsActive");
@@ -165,10 +165,10 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<MitarbeiterDetails>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Sozialversicherungsnummer).HasMaxLength(50);
             entity.Property(e => e.SteuerId).HasMaxLength(50);
-            
+
             entity.HasOne(e => e.Mitarbeiter)
                   .WithOne(m => m.Details)
                   .HasForeignKey<MitarbeiterDetails>(e => e.MitarbeiterId)
@@ -182,23 +182,23 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Termin>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Titel).HasMaxLength(200);
             entity.Property(e => e.Beschreibung).HasMaxLength(1000);
             entity.Property(e => e.Notizen).HasMaxLength(2000);
-            
+
             // Performance Indizes
             entity.HasIndex(e => e.Datum).HasDatabaseName("IX_Termin_Datum");
             entity.HasIndex(e => new { e.Datum, e.MitarbeiterId }).HasDatabaseName("IX_Termin_DatumMitarbeiter");
             entity.HasIndex(e => new { e.PatientId, e.Datum }).HasDatabaseName("IX_Termin_PatientDatum");
             entity.HasIndex(e => e.TerminstatusId).HasDatabaseName("IX_Termin_Status");
-            
+
             // Beziehungen
             entity.HasOne(e => e.Patient)
                   .WithMany(p => p.Termine)
                   .HasForeignKey(e => e.PatientId)
                   .OnDelete(DeleteBehavior.Restrict);
-                  
+
             entity.HasOne(e => e.Mitarbeiter)
                   .WithMany(m => m.Termine)
                   .HasForeignKey(e => e.MitarbeiterId)
@@ -209,11 +209,11 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Terminvorlage>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Bezeichnung).HasMaxLength(200).IsRequired();
             entity.Property(e => e.Beschreibung).HasMaxLength(1000);
             entity.Property(e => e.Farbe).HasMaxLength(7); // Hex-Farbcode
-            
+
             // Decimal Precision
             entity.Property(e => e.StandardPreis).HasPrecision(18, 2);
         });
@@ -222,9 +222,9 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Warteliste>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Notizen).HasMaxLength(1000);
-            
+
             // Performance Index
             entity.HasIndex(e => new { e.IstAktiv, e.EingetragenenAm }).HasDatabaseName("IX_Warteliste_AktivDatum");
         });
@@ -236,18 +236,18 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Rechnung>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Rechnungsnummer).HasMaxLength(50).IsRequired();
             entity.Property(e => e.Beschreibung).HasMaxLength(1000);
-            
+
             // Decimal Precision für Geldbeträge
             entity.Property(e => e.Betrag).HasPrecision(18, 2);
             entity.Property(e => e.Steuerbetrag).HasPrecision(18, 2);
             entity.Property(e => e.Gesamtbetrag).HasPrecision(18, 2);
-            
+
             // Unique Constraint
             entity.HasIndex(e => e.Rechnungsnummer).IsUnique().HasDatabaseName("IX_Rechnung_Nummer_Unique");
-            
+
             // Performance Indizes
             entity.HasIndex(e => e.Rechnungsdatum).HasDatabaseName("IX_Rechnung_Datum");
             entity.HasIndex(e => e.PatientId).HasDatabaseName("IX_Rechnung_Patient");
@@ -258,11 +258,11 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<RechnungsPosition>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Bezeichnung).HasMaxLength(200).IsRequired();
             entity.Property(e => e.GOÄ_Ziffer).HasMaxLength(20);
             entity.Property(e => e.Beschreibung).HasMaxLength(1000);
-            
+
             // Decimal Precision
             entity.Property(e => e.Einzelpreis).HasPrecision(18, 2);
             entity.Property(e => e.Faktor).HasPrecision(5, 2);
@@ -273,13 +273,13 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Budget>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Notizen).HasMaxLength(1000);
-            
+
             // Decimal Precision
             entity.Property(e => e.GeplanteBetrag).HasPrecision(18, 2);
             entity.Property(e => e.TatsächlicherBetrag).HasPrecision(18, 2);
-            
+
             // Performance Index
             entity.HasIndex(e => new { e.Jahr, e.Monat }).HasDatabaseName("IX_Budget_JahrMonat");
         });
@@ -288,11 +288,11 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Kostenstelle>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Code).HasMaxLength(20).IsRequired();
             entity.Property(e => e.Bezeichnung).HasMaxLength(200).IsRequired();
             entity.Property(e => e.Beschreibung).HasMaxLength(1000);
-            
+
             // Unique Constraint
             entity.HasIndex(e => e.Code).IsUnique().HasDatabaseName("IX_Kostenstelle_Code_Unique");
         });
@@ -301,7 +301,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Gehalt>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             // Decimal Precision für Geldbeträge
             entity.Property(e => e.Grundgehalt).HasPrecision(18, 2);
             entity.Property(e => e.Zulagen).HasPrecision(18, 2);
@@ -309,7 +309,7 @@ public class LindebergsHealthDbContext : DbContext
             entity.Property(e => e.Nettogehalt).HasPrecision(18, 2);
             entity.Property(e => e.Steuern).HasPrecision(18, 2);
             entity.Property(e => e.Sozialversicherung).HasPrecision(18, 2);
-            
+
             // Performance Index
             entity.HasIndex(e => new { e.MitarbeiterId, e.Jahr, e.Monat }).HasDatabaseName("IX_Gehalt_MitarbeiterJahrMonat");
         });
@@ -321,7 +321,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Adresse>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Strasse).HasMaxLength(200);
             entity.Property(e => e.Hausnummer).HasMaxLength(20);
             entity.Property(e => e.Zusatz).HasMaxLength(100);
@@ -329,11 +329,11 @@ public class LindebergsHealthDbContext : DbContext
             entity.Property(e => e.Ort).HasMaxLength(100);
             entity.Property(e => e.Land).HasMaxLength(100);
             entity.Property(e => e.ValidationSource).HasMaxLength(100);
-            
+
             // Decimal Precision für Geo-Koordinaten
             entity.Property(e => e.Latitude).HasPrecision(18, 6);
             entity.Property(e => e.Longitude).HasPrecision(18, 6);
-            
+
             // Performance Indizes
             entity.HasIndex(e => e.Postleitzahl).HasDatabaseName("IX_Adresse_PLZ");
             entity.HasIndex(e => new { e.Postleitzahl, e.Ort }).HasDatabaseName("IX_Adresse_PLZOrt");
@@ -343,10 +343,10 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Kontakt>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             entity.Property(e => e.Wert).HasMaxLength(255).IsRequired();
             entity.Property(e => e.Notizen).HasMaxLength(1000);
-            
+
             // Performance Index
             entity.HasIndex(e => e.KontakttypId).HasDatabaseName("IX_Kontakt_Typ");
         });
@@ -355,7 +355,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<PatientAdresse>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             // Composite Index für Performance
             entity.HasIndex(e => new { e.PatientId, e.IstHauptadresse }).HasDatabaseName("IX_PatientAdresse_PatientHaupt");
         });
@@ -364,7 +364,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<PatientKontakt>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             // Composite Index für Performance
             entity.HasIndex(e => new { e.PatientId, e.IstHauptkontakt }).HasDatabaseName("IX_PatientKontakt_PatientHaupt");
         });
@@ -393,10 +393,10 @@ public class LindebergsHealthDbContext : DbContext
             {
                 entity.Property("Name").HasMaxLength(100).IsRequired();
                 entity.Property("Beschreibung").HasMaxLength(500);
-                
+
                 // Performance Index auf Name
                 entity.HasIndex("Name").HasDatabaseName($"IX_{lookupType.Name}_Name");
-                
+
                 // Unique Constraint auf Name
                 entity.HasIndex("Name").IsUnique().HasDatabaseName($"IX_{lookupType.Name}_Name_Unique");
             });
@@ -409,7 +409,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<PatientHistory>(entity =>
         {
             entity.HasKey(e => e.Id);
-            
+
             // Performance Index für History-Abfragen
             entity.HasIndex(e => new { e.OriginalId, e.GültigVon }).HasDatabaseName("IX_PatientHistory_OriginalGueltigVon");
             entity.HasIndex(e => e.GültigVon).HasDatabaseName("IX_PatientHistory_GueltigVon");
@@ -421,16 +421,16 @@ public class LindebergsHealthDbContext : DbContext
     private void ConfigurePerformanceIndexes(ModelBuilder modelBuilder)
     {
         // Zusätzliche Performance-Indizes für häufige Abfragen
-        
+
         // Soft Delete Performance
         modelBuilder.Entity<Patient>()
             .HasIndex(e => e.IstGelöscht)
             .HasDatabaseName("IX_Patient_IstGeloescht");
-            
+
         modelBuilder.Entity<Mitarbeiter>()
             .HasIndex(e => e.IstGelöscht)
             .HasDatabaseName("IX_Mitarbeiter_IstGeloescht");
-            
+
         modelBuilder.Entity<Termin>()
             .HasIndex(e => e.IstGelöscht)
             .HasDatabaseName("IX_Termin_IstGeloescht");
@@ -439,7 +439,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Patient>()
             .HasIndex(e => e.ErstelltAm)
             .HasDatabaseName("IX_Patient_ErstelltAm");
-            
+
         modelBuilder.Entity<Patient>()
             .HasIndex(e => e.GeändertAm)
             .HasDatabaseName("IX_Patient_GeaendertAm");
@@ -448,7 +448,7 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Termin>()
             .HasIndex(e => new { e.IstGelöscht, e.Datum, e.MitarbeiterId })
             .HasDatabaseName("IX_Termin_GeloeschtDatumMitarbeiter");
-            
+
         modelBuilder.Entity<Rechnung>()
             .HasIndex(e => new { e.IstGelöscht, e.PatientId, e.Rechnungsdatum })
             .HasDatabaseName("IX_Rechnung_GeloeschtPatientDatum");
@@ -463,11 +463,11 @@ public class LindebergsHealthDbContext : DbContext
         modelBuilder.Entity<Rechnung>().HasQueryFilter(e => !e.IstGelöscht);
         modelBuilder.Entity<Adresse>().HasQueryFilter(e => !e.IstGelöscht);
         modelBuilder.Entity<Kontakt>().HasQueryFilter(e => !e.IstGelöscht);
-        
+
         // Weitere Entities mit Soft Delete...
     }
 
 
 
     #endregion
-} 
+}
