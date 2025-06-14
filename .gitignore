@@ -331,7 +331,7 @@ local.settings.json
 .env.staging
 
 ## Application settings (lokale Entwicklung)
-**/appsettings.Development.json
+
 **/appsettings.Local.json
 **/appsettings.*.local.json
 
