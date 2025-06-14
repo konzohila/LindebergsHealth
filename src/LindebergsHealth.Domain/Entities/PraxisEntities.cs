@@ -10,7 +10,7 @@ public class Praxis : BaseEntity
     public string Telefon { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Website { get; set; } = string.Empty;
-    
+
     // Navigation Properties
     public ICollection<PraxisAdresse> Adressen { get; set; } = new List<PraxisAdresse>();
     public ICollection<Raum> Räume { get; set; } = new List<Raum>();
@@ -35,18 +35,18 @@ public class PraxisHistory : BaseHistoryEntity
 public class Ausstattung : BaseEntity
 {
     public Guid RaumId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid AusstattungstypId { get; set; }
     public Ausstattungstyp Ausstattungstyp { get; set; } = null!;
-    
+
     // Ausstattungsdaten
     public string Bezeichnung { get; set; } = string.Empty;
     public string Beschreibung { get; set; } = string.Empty;
     public DateTime? AnschaffungsDatum { get; set; }
     public decimal? AnschaffungsWert { get; set; }
     public bool Aktiv { get; set; } = true;
-    
+
     // Navigation Properties
     public Raum Raum { get; set; } = null!;
 }
@@ -57,11 +57,11 @@ public class Ausstattung : BaseEntity
 public class AusstattungHistory : BaseHistoryEntity
 {
     public Guid RaumId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid AusstattungstypId { get; set; }
     public Ausstattungstyp Ausstattungstyp { get; set; } = null!;
-    
+
     // Ausstattungsdaten
     public string Bezeichnung { get; set; } = string.Empty;
     public string Beschreibung { get; set; } = string.Empty;
@@ -101,14 +101,14 @@ public class RaumHistory : BaseHistoryEntity
 public class Dokument : BaseEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid DateitypId { get; set; }
     public Dateityp Dateityp { get; set; } = null!;
-    
+
     public Guid DokumenttypId { get; set; }
     public Dokumenttyp Dokumenttyp { get; set; } = null!;
-    
+
     // Dokumentdaten
     public string Titel { get; set; } = string.Empty; // MRT Bericht
     public string Dateipfad { get; set; } = string.Empty;
@@ -126,14 +126,14 @@ public class Dokument : BaseEntity
 public class DokumentHistory : BaseHistoryEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid DateitypId { get; set; }
     public Dateityp Dateityp { get; set; } = null!;
-    
+
     public Guid DokumenttypId { get; set; }
     public Dokumenttyp Dokumenttyp { get; set; } = null!;
-    
+
     // Dokumentdaten
     public string Titel { get; set; } = string.Empty;
     public string Dateipfad { get; set; } = string.Empty;
@@ -150,10 +150,10 @@ public class Kooperationspartner : BaseEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid FachrichtungId { get; set; }
     public Fachrichtung Fachrichtung { get; set; } = null!;
-    
+
     public Guid KommunikationsformId { get; set; }
     public Kommunikationsform Kommunikationsform { get; set; } = null!;
-    
+
     // Partnerdaten
     public string Name { get; set; } = string.Empty; // Arztpraxis
     public string Einrichtung { get; set; } = string.Empty; // Träger
@@ -162,7 +162,7 @@ public class Kooperationspartner : BaseEntity
 
     // Navigation Properties
     public KooperationDetails? Details { get; set; }
-    
+
     // Normalisierte Adress- und Kontaktdaten
     public ICollection<KooperationspartnerAdresse> Adressen { get; set; } = new List<KooperationspartnerAdresse>();
     public ICollection<KooperationspartnerKontakt> Kontakte { get; set; } = new List<KooperationspartnerKontakt>();
@@ -176,10 +176,10 @@ public class KooperationspartnerHistory : BaseHistoryEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid FachrichtungId { get; set; }
     public Fachrichtung Fachrichtung { get; set; } = null!;
-    
+
     public Guid KommunikationsformId { get; set; }
     public Kommunikationsform Kommunikationsform { get; set; } = null!;
-    
+
     // Partnerdaten
     public string Name { get; set; } = string.Empty;
     public string Einrichtung { get; set; } = string.Empty;
@@ -193,7 +193,7 @@ public class KooperationspartnerHistory : BaseHistoryEntity
 public class KooperationDetails : BaseEntity
 {
     public Guid PartnerId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid KooperationsStatusId { get; set; }
     public KooperationsStatus KooperationsStatus { get; set; } = null!;
@@ -231,13 +231,13 @@ public class PraxisAdresse : BaseEntity
 {
     public Guid PraxisId { get; set; }
     public Guid AdresseId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid AdresstypId { get; set; }
     public Adresstyp Adresstyp { get; set; } = null!;
-    
+
     public bool IstHauptadresse { get; set; }
-    
+
     // Navigation Properties
     public Praxis Praxis { get; set; } = null!;
     public Adresse Adresse { get; set; } = null!;
@@ -250,10 +250,10 @@ public class PraxisAdresseHistory : BaseHistoryEntity
 {
     public Guid PraxisId { get; set; }
     public Guid AdresseId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid AdresstypId { get; set; }
     public Adresstyp Adresstyp { get; set; } = null!;
-    
+
     public bool IstHauptadresse { get; set; }
-} 
+}

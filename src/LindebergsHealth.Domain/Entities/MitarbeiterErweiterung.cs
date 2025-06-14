@@ -6,23 +6,23 @@ namespace LindebergsHealth.Domain.Entities;
 public class MitarbeiterVertrag : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid MitarbeiterFunktionId { get; set; }
     public MitarbeiterFunktion MitarbeiterFunktion { get; set; } = null!;
-    
+
     public Guid AbteilungId { get; set; }
     public Abteilung Abteilung { get; set; } = null!;
-    
+
     public Guid VertragsformId { get; set; }
     public Vertragsform Vertragsform { get; set; } = null!;
-    
+
     public Guid GehaltstypId { get; set; }
     public Gehaltstyp Gehaltstyp { get; set; } = null!;
-    
+
     public Guid VertragsstatusId { get; set; }
     public Vertragsstatus Vertragsstatus { get; set; } = null!;
-    
+
     // Vertragsdaten
     public int StundenWoche { get; set; } // Vertragliche Stunden
     public DateTime Eintrittsdatum { get; set; }
@@ -44,19 +44,19 @@ public class MitarbeiterVertragHistory : BaseHistoryEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid MitarbeiterFunktionId { get; set; }
     public MitarbeiterFunktion MitarbeiterFunktion { get; set; } = null!;
-    
+
     public Guid AbteilungId { get; set; }
     public Abteilung Abteilung { get; set; } = null!;
-    
+
     public Guid VertragsformId { get; set; }
     public Vertragsform Vertragsform { get; set; } = null!;
-    
+
     public Guid GehaltstypId { get; set; }
     public Gehaltstyp Gehaltstyp { get; set; } = null!;
-    
+
     public Guid VertragsstatusId { get; set; }
     public Vertragsstatus Vertragsstatus { get; set; } = null!;
-    
+
     // Vertragsdaten
     public int StundenWoche { get; set; }
     public DateTime Eintrittsdatum { get; set; }
@@ -73,11 +73,11 @@ public class MitarbeiterVertragHistory : BaseHistoryEntity
 public class MitarbeiterFortbildung : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid TeilnahmeformId { get; set; }
     public Teilnahmeform Teilnahmeform { get; set; } = null!;
-    
+
     // Fortbildungsdaten
     public string Titel { get; set; } = string.Empty; // Name der Fortbildung
     public string Anbieter { get; set; } = string.Empty; // Durchführende Organisation
@@ -98,11 +98,11 @@ public class MitarbeiterFortbildung : BaseEntity
 public class MitarbeiterFortbildungHistory : BaseHistoryEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid TeilnahmeformId { get; set; }
     public Teilnahmeform Teilnahmeform { get; set; } = null!;
-    
+
     // Fortbildungsdaten
     public string Titel { get; set; } = string.Empty;
     public string Anbieter { get; set; } = string.Empty;
@@ -120,11 +120,11 @@ public class MitarbeiterFortbildungHistory : BaseHistoryEntity
 public class PatientBeziehungsperson : BaseEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Personendaten
     public string Name { get; set; } = string.Empty;
     public string Telefon { get; set; } = string.Empty;
@@ -144,7 +144,7 @@ public class PatientBeziehungspersonHistory : BaseHistoryEntity
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Personendaten
     public string Name { get; set; } = string.Empty;
     public string Telefon { get; set; } = string.Empty;
@@ -159,7 +159,7 @@ public class PatientBeziehungspersonHistory : BaseHistoryEntity
 public class PatientEmpfehlung : BaseEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid EmpfehlungstypId { get; set; }
     public Empfehlungstyp Empfehlungstyp { get; set; } = null!;
@@ -186,11 +186,11 @@ public class PatientEmpfehlungHistory : BaseHistoryEntity
 public class PatientNotfallkontakt : BaseEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Kontaktdaten
     public string Name { get; set; } = string.Empty;
     public string Telefonnummer { get; set; } = string.Empty;
@@ -208,9 +208,9 @@ public class PatientNotfallkontaktHistory : BaseHistoryEntity
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Kontaktdaten
     public string Name { get; set; } = string.Empty;
     public string Telefonnummer { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-} 
+}

@@ -14,7 +14,7 @@ public class Rechnung : BaseEntity
     public Guid TerminId { get; set; }
     public decimal Betrag { get; set; }
     public DateTime? BezahltAm { get; set; }
-    
+
     // Rechnungsdetails
     public string Rechnungsnummer { get; set; } = string.Empty;
     public DateTime Rechnungsdatum { get; set; } = DateTime.UtcNow;
@@ -24,7 +24,7 @@ public class Rechnung : BaseEntity
     // Navigation Properties
     public Patient Patient { get; set; } = null!;
     public Termin Termin { get; set; } = null!;
-    
+
     // Erweiterte Finanz-Navigation Properties
     public ICollection<RechnungsPosition> Positionen { get; set; } = new List<RechnungsPosition>();
     public ICollection<Zahlungseingang> Zahlungseingänge { get; set; } = new List<Zahlungseingang>();
@@ -40,7 +40,7 @@ public class RechnungHistory : BaseHistoryEntity
     public Guid TerminId { get; set; }
     public decimal Betrag { get; set; }
     public DateTime? BezahltAm { get; set; }
-    
+
     // Rechnungsdetails
     public string Rechnungsnummer { get; set; } = string.Empty;
     public DateTime Rechnungsdatum { get; set; }
@@ -88,10 +88,10 @@ public class FinanzPosition : BaseEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid FinanzKategorieId { get; set; }
     public FinanzKategorie FinanzKategorie { get; set; } = null!;
-    
+
     public Guid FinanzTypId { get; set; }
     public FinanzTyp FinanzTyp { get; set; } = null!;
-    
+
     // Finanzdaten
     public string Bezeichnung { get; set; } = string.Empty; // GEHÄLTER
     public int Monat { get; set; } // 1-12
@@ -108,14 +108,14 @@ public class FinanzPositionHistory : BaseHistoryEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid FinanzKategorieId { get; set; }
     public FinanzKategorie FinanzKategorie { get; set; } = null!;
-    
+
     public Guid FinanzTypId { get; set; }
     public FinanzTyp FinanzTyp { get; set; } = null!;
-    
+
     // Finanzdaten
     public string Bezeichnung { get; set; } = string.Empty;
     public int Monat { get; set; }
     public int Jahr { get; set; }
     public decimal Betrag { get; set; }
     public string Quelle { get; set; } = string.Empty;
-} 
+}

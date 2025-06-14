@@ -402,7 +402,7 @@ public static class LookupSeedData
     };
 
     // ===== DOKUMENT-BEZOGENE LOOKUPS =====
-    
+
     public static readonly List<Dokumenttyp> Dokumenttypen = new()
     {
         new() { Id = Guid.NewGuid(), Code = "BEFUND", Bezeichnung = "Befund", Sortierung = 1, Aktiv = true },
@@ -417,7 +417,7 @@ public static class LookupSeedData
     };
 
     // ===== ADRESS- UND KONTAKT-BEZOGENE LOOKUPS =====
-    
+
     public static readonly List<Adresstyp> Adresstypen = new()
     {
         new() { Id = Guid.NewGuid(), Code = "HAUPT", Bezeichnung = "Hauptadresse", Sortierung = 1, Aktiv = true },
@@ -451,7 +451,7 @@ public static class LookupSeedData
     };
 
     // ===== ERWEITERTE FINANZ-BEZOGENE LOOKUPS =====
-    
+
     public static readonly List<Leistungstyp> Leistungstypen = new()
     {
         new() { Id = Guid.NewGuid(), Code = "OST_ERST", Bezeichnung = "Osteopathie Erstbehandlung", Sortierung = 1, Aktiv = true },
@@ -519,7 +519,7 @@ public static class LookupSeedData
     };
 
     // ===== ERWEITERTE TERMIN-BEZOGENE LOOKUPS =====
-    
+
     public static readonly List<Blockierungsgrund> Blockierungsgründe = new()
     {
         new() { Id = Guid.NewGuid(), Code = "URLAUB", Bezeichnung = "Urlaub", Sortierung = 1, Aktiv = true },
@@ -556,4 +556,4 @@ public static class LookupSeedData
         new() { Id = Guid.NewGuid(), Code = "DRINGEND", Bezeichnung = "Dringend", Sortierung = 4, Aktiv = true },
         new() { Id = Guid.NewGuid(), Code = "NOTFALL", Bezeichnung = "Notfall", Sortierung = 5, Aktiv = true }
     };
-} 
+}

@@ -19,7 +19,7 @@ public class Mitarbeiter : BaseEntity
     public virtual ICollection<Termin> Termine { get; set; } = new List<Termin>();
     public virtual ICollection<TherapeutenCheckliste> Checklisten { get; set; } = new List<TherapeutenCheckliste>();
     public virtual ICollection<Gehalt> Gehaelter { get; set; } = new List<Gehalt>();
-    
+
     // Normalisierte Adress- und Kontaktdaten
     public virtual ICollection<MitarbeiterAdresse> Adressen { get; set; } = new List<MitarbeiterAdresse>();
     public virtual ICollection<MitarbeiterKontakt> Kontakte { get; set; } = new List<MitarbeiterKontakt>();
@@ -31,14 +31,14 @@ public class Mitarbeiter : BaseEntity
 public class MitarbeiterDetails : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid GeschlechtId { get; set; }
     public virtual Geschlecht Geschlecht { get; set; } = null!;
-    
+
     public Guid FamilienstandId { get; set; }
     public virtual Familienstand Familienstand { get; set; } = null!;
-    
+
     // Persönliche Daten
     public DateTime Geburtsdatum { get; set; }
     public string Sozialversicherungsnummer { get; set; } = string.Empty;
@@ -57,10 +57,10 @@ public class MitarbeiterDetailsHistory : BaseHistoryEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid GeschlechtId { get; set; }
     public Geschlecht Geschlecht { get; set; } = null!;
-    
+
     public Guid FamilienstandId { get; set; }
     public Familienstand Familienstand { get; set; } = null!;
-    
+
     // Persönliche Daten
     public DateTime Geburtsdatum { get; set; }
     public string Sozialversicherungsnummer { get; set; } = string.Empty;
@@ -74,11 +74,11 @@ public class MitarbeiterDetailsHistory : BaseHistoryEntity
 public class MitarbeiterNotfallkontakt : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public virtual Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Kontaktdaten
     public string Name { get; set; } = string.Empty;
     public string Telefonnummer { get; set; } = string.Empty;
@@ -96,9 +96,9 @@ public class MitarbeiterNotfallkontaktHistory : BaseHistoryEntity
     // Foreign Key für Lookup-Tabelle
     public Guid BeziehungstypId { get; set; }
     public Beziehungstyp Beziehungstyp { get; set; } = null!;
-    
+
     // Kontaktdaten
     public string Name { get; set; } = string.Empty;
     public string Telefonnummer { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-} 
+}

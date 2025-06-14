@@ -12,16 +12,16 @@ public class Adresse : BaseEntity
     public string Postleitzahl { get; set; } = string.Empty;
     public string Ort { get; set; } = string.Empty;
     public string Land { get; set; } = "Deutschland";
-    
+
     // Geo-Koordinaten für Routenplanung
     public decimal? Latitude { get; set; }
     public decimal? Longitude { get; set; }
-    
+
     // Validierung und Qualität
     public bool IstValidiert { get; set; }
     public DateTime? ValidiertAm { get; set; }
     public string ValidationSource { get; set; } = string.Empty; // Google, DHL, etc.
-    
+
     // Navigation Properties
     public virtual ICollection<PatientAdresse> PatientenAdressen { get; set; } = new List<PatientAdresse>();
     public virtual ICollection<MitarbeiterAdresse> MitarbeiterAdressen { get; set; } = new List<MitarbeiterAdresse>();
@@ -55,13 +55,13 @@ public class Kontakt : BaseEntity
     // Foreign Key für Kontakttyp-Lookup
     public Guid KontakttypId { get; set; }
     public virtual Kontakttyp Kontakttyp { get; set; } = null!;
-    
+
     public string Wert { get; set; } = string.Empty; // Telefonnummer, E-Mail, etc.
     public bool IstHauptkontakt { get; set; }
     public bool IstValidiert { get; set; }
     public DateTime? ValidiertAm { get; set; }
     public string Notizen { get; set; } = string.Empty;
-    
+
     // Navigation Properties
     public virtual ICollection<PatientKontakt> PatientenKontakte { get; set; } = new List<PatientKontakt>();
     public virtual ICollection<MitarbeiterKontakt> MitarbeiterKontakte { get; set; } = new List<MitarbeiterKontakt>();
@@ -89,15 +89,15 @@ public class PatientAdresse : BaseEntity
 {
     public Guid PatientId { get; set; }
     public Guid AdresseId { get; set; }
-    
+
     // Foreign Key für Adresstyp-Lookup
     public Guid AdresstypId { get; set; }
     public virtual Adresstyp Adresstyp { get; set; } = null!;
-    
+
     public bool IstHauptadresse { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Patient Patient { get; set; } = null!;
     public virtual Adresse Adresse { get; set; } = null!;
@@ -124,11 +124,11 @@ public class PatientKontakt : BaseEntity
 {
     public Guid PatientId { get; set; }
     public Guid KontaktId { get; set; }
-    
+
     public bool IstHauptkontakt { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Patient Patient { get; set; } = null!;
     public virtual Kontakt Kontakt { get; set; } = null!;
@@ -153,15 +153,15 @@ public class MitarbeiterAdresse : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
     public Guid AdresseId { get; set; }
-    
+
     // Foreign Key für Adresstyp-Lookup
     public Guid AdresstypId { get; set; }
     public virtual Adresstyp Adresstyp { get; set; } = null!;
-    
+
     public bool IstHauptadresse { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Mitarbeiter Mitarbeiter { get; set; } = null!;
     public virtual Adresse Adresse { get; set; } = null!;
@@ -188,12 +188,12 @@ public class MitarbeiterKontakt : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
     public Guid KontaktId { get; set; }
-    
+
     public bool IstHauptkontakt { get; set; }
     public bool IstDienstlich { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Mitarbeiter Mitarbeiter { get; set; } = null!;
     public virtual Kontakt Kontakt { get; set; } = null!;
@@ -219,15 +219,15 @@ public class KooperationspartnerAdresse : BaseEntity
 {
     public Guid KooperationspartnerId { get; set; }
     public Guid AdresseId { get; set; }
-    
+
     // Foreign Key für Adresstyp-Lookup
     public Guid AdresstypId { get; set; }
     public virtual Adresstyp Adresstyp { get; set; } = null!;
-    
+
     public bool IstHauptadresse { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Kooperationspartner Kooperationspartner { get; set; } = null!;
     public virtual Adresse Adresse { get; set; } = null!;
@@ -254,11 +254,11 @@ public class KooperationspartnerKontakt : BaseEntity
 {
     public Guid KooperationspartnerId { get; set; }
     public Guid KontaktId { get; set; }
-    
+
     public bool IstHauptkontakt { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-    
+
     // Navigation Properties
     public virtual Kooperationspartner Kooperationspartner { get; set; } = null!;
     public virtual Kontakt Kontakt { get; set; } = null!;
@@ -274,4 +274,4 @@ public class KooperationspartnerKontaktHistory : BaseHistoryEntity
     public bool IstHauptkontakt { get; set; }
     public DateTime GueltigVon { get; set; }
     public DateTime? GueltigBis { get; set; }
-} 
+}

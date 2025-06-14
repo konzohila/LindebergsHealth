@@ -15,11 +15,11 @@ public class Termin : BaseEntity
     public Guid? PatientId { get; set; } // Optional für interne Termine
     public Guid RaumId { get; set; }
     public Guid KategorieId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid TermintypId { get; set; }
     public Termintyp Termintyp { get; set; } = null!;
-    
+
     public Guid TerminstatusId { get; set; }
     public Terminstatus Terminstatus { get; set; } = null!;
 
@@ -27,7 +27,7 @@ public class Termin : BaseEntity
     public virtual Patient? Patient { get; set; }
     public virtual Mitarbeiter Mitarbeiter { get; set; } = null!;
     public virtual Raum Raum { get; set; } = null!;
-    
+
     // Erweiterte Termin-Navigation Properties
     public virtual Terminvorlage? Terminvorlage { get; set; }
     public virtual Terminserie? Terminserie { get; set; }
@@ -47,11 +47,11 @@ public class TerminHistory : BaseHistoryEntity
     public Guid? PatientId { get; set; }
     public Guid RaumId { get; set; }
     public Guid KategorieId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid TermintypId { get; set; }
     public Termintyp Termintyp { get; set; } = null!;
-    
+
     public Guid TerminstatusId { get; set; }
     public Terminstatus Terminstatus { get; set; } = null!;
 }
@@ -91,4 +91,4 @@ public class TerminKategorieHistory : BaseHistoryEntity
     public int DauerMinuten { get; set; }
     public string Häufigkeit { get; set; } = string.Empty;
     public string Kommentar { get; set; } = string.Empty;
-} 
+}

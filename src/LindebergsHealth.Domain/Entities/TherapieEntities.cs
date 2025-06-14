@@ -8,20 +8,20 @@ public class TherapieEinheit : BaseEntity
     public Guid TerminId { get; set; }
     public Guid PatientId { get; set; }
     public Guid TherapeutId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid TherapietypId { get; set; }
     public Therapietyp Therapietyp { get; set; } = null!;
-    
+
     public Guid TherapiestatusId { get; set; }
     public Therapiestatus Therapiestatus { get; set; } = null!;
-    
+
     // Therapiedaten
     public string Befund { get; set; } = string.Empty;
     public string Behandlung { get; set; } = string.Empty;
     public string Notizen { get; set; } = string.Empty;
     public int Dauer { get; set; } // in Minuten
-    
+
     // Navigation Properties
     public Termin Termin { get; set; } = null!;
     public Patient Patient { get; set; } = null!;
@@ -36,14 +36,14 @@ public class TherapieEinheitHistory : BaseHistoryEntity
     public Guid TerminId { get; set; }
     public Guid PatientId { get; set; }
     public Guid TherapeutId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid TherapietypId { get; set; }
     public Therapietyp Therapietyp { get; set; } = null!;
-    
+
     public Guid TherapiestatusId { get; set; }
     public Therapiestatus Therapiestatus { get; set; } = null!;
-    
+
     // Therapiedaten
     public string Befund { get; set; } = string.Empty;
     public string Behandlung { get; set; } = string.Empty;
@@ -58,7 +58,7 @@ public class Koerperstatus : BaseEntity
 {
     public Guid PatientId { get; set; }
     public Guid TherapeutId { get; set; } // Therapeut der den Befund erstellt hat
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid KoerperregionId { get; set; }
     public Koerperregion Koerperregion { get; set; } = null!;
@@ -77,7 +77,7 @@ public class KoerperstatusHistory : BaseHistoryEntity
 {
     public Guid PatientId { get; set; }
     public Guid TherapeutId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid KoerperregionId { get; set; }
     public Koerperregion Koerperregion { get; set; } = null!;
@@ -92,11 +92,11 @@ public class TherapieSerie : BaseEntity
 {
     public Guid PatientId { get; set; }
     public Guid StartTerminId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid TherapieserieStatusId { get; set; }
     public TherapieserieStatus TherapieserieStatus { get; set; } = null!;
-    
+
     // Therapiedaten
     public int AnzahlTermine { get; set; } // 5 oder 10
     public string Bezeichnung { get; set; } = string.Empty; // Manuelle Therapie
@@ -113,11 +113,11 @@ public class TherapieSerieHistory : BaseHistoryEntity
 {
     public Guid PatientId { get; set; }
     public Guid StartTerminId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid TherapieserieStatusId { get; set; }
     public TherapieserieStatus TherapieserieStatus { get; set; } = null!;
-    
+
     // Therapiedaten
     public int AnzahlTermine { get; set; }
     public string Bezeichnung { get; set; } = string.Empty;
@@ -129,14 +129,14 @@ public class TherapieSerieHistory : BaseHistoryEntity
 public class TherapeutenCheckliste : BaseEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid ChecklistenKategorieId { get; set; }
     public ChecklistenKategorie ChecklistenKategorie { get; set; } = null!;
-    
+
     public Guid AufgabenStatusId { get; set; }
     public AufgabenStatus AufgabenStatus { get; set; } = null!;
-    
+
     // Aufgabendaten
     public string Aufgabe { get; set; } = string.Empty; // Patientenakte prüfen
     public DateTime? FälligBis { get; set; }
@@ -151,14 +151,14 @@ public class TherapeutenCheckliste : BaseEntity
 public class TherapeutenChecklisteHistory : BaseHistoryEntity
 {
     public Guid MitarbeiterId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid ChecklistenKategorieId { get; set; }
     public ChecklistenKategorie ChecklistenKategorie { get; set; } = null!;
-    
+
     public Guid AufgabenStatusId { get; set; }
     public AufgabenStatus AufgabenStatus { get; set; } = null!;
-    
+
     // Aufgabendaten
     public string Aufgabe { get; set; } = string.Empty;
     public DateTime? FälligBis { get; set; }
@@ -170,7 +170,7 @@ public class TherapeutenChecklisteHistory : BaseHistoryEntity
 public class Einwilligung : BaseEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid EinwilligungsKategorieId { get; set; }
     public EinwilligungsKategorie EinwilligungsKategorie { get; set; } = null!;
@@ -188,7 +188,7 @@ public class Einwilligung : BaseEntity
 public class EinwilligungHistory : BaseHistoryEntity
 {
     public Guid PatientId { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid EinwilligungsKategorieId { get; set; }
     public EinwilligungsKategorie EinwilligungsKategorie { get; set; } = null!;
@@ -204,7 +204,7 @@ public class Kommunikationsverlauf : BaseEntity
 {
     public Guid PatientId { get; set; }
     public DateTime Datum { get; set; } = DateTime.UtcNow;
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid KommunikationskanalId { get; set; }
     public Kommunikationskanal Kommunikationskanal { get; set; } = null!;
@@ -222,10 +222,10 @@ public class KommunikationsverlaufHistory : BaseHistoryEntity
 {
     public Guid PatientId { get; set; }
     public DateTime Datum { get; set; }
-    
+
     // Foreign Key für Lookup-Tabelle
     public Guid KommunikationskanalId { get; set; }
     public Kommunikationskanal Kommunikationskanal { get; set; } = null!;
     public string Inhalt { get; set; } = string.Empty;
     public Guid VerfasstVonOriginal { get; set; }
-} 
+}

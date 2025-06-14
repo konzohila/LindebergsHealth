@@ -9,14 +9,14 @@ public class PatientVersicherung : BaseEntity
     public string Versicherungsnummer { get; set; } = string.Empty;
     public bool IsDeleted { get; set; }
     public Guid PatientId { get; set; }
-    
+
     // Foreign Keys für Lookup-Tabellen
     public Guid VersicherungstypId { get; set; }
     public Versicherungstyp Versicherungstyp { get; set; } = null!;
-    
+
     public Guid VersicherungsstatusId { get; set; }
     public Versicherungsstatus Versicherungsstatus { get; set; } = null!;
-    
+
     // Versicherungsdaten
     public string NameDerVersicherung { get; set; } = string.Empty;
     public string VersicherterName { get; set; } = string.Empty; // Falls abweichend
@@ -36,14 +36,14 @@ public class PatientVersicherungHistory : BaseHistoryEntity
     // Foreign Keys für Lookup-Tabellen
     public Guid VersicherungstypId { get; set; }
     public Versicherungstyp Versicherungstyp { get; set; } = null!;
-    
+
     public Guid VersicherungsstatusId { get; set; }
     public Versicherungsstatus Versicherungsstatus { get; set; } = null!;
-    
+
     // Versicherungsdaten
     public string NameDerVersicherung { get; set; } = string.Empty;
     public string VersicherterName { get; set; } = string.Empty;
     public DateTime VersicherterGeburtsdatum { get; set; }
     public bool HeilpraktikerErlaubt { get; set; }
     public string Mitversicherte { get; set; } = string.Empty;
-} 
+}

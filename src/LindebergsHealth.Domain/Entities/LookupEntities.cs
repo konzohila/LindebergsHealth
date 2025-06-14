@@ -475,4 +475,4 @@ public class Einwilligungstyp : BaseLookupEntity
 {
     // Navigation Properties
     public ICollection<Einwilligung> Einwilligungen { get; set; } = new List<Einwilligung>();
-} 
+}
