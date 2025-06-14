@@ -24,7 +24,7 @@ public class WeatherForecastController : ControllerBase
     public IEnumerable<WeatherForecast> Get()
     {
         _logger.LogInformation("WeatherForecast requested by user: {User}", User.Identity?.Name);
-        
+
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -41,4 +41,4 @@ public class WeatherForecast
     public int TemperatureC { get; set; }
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     public string? Summary { get; set; }
-} 
+}
