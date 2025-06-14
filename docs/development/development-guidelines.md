@@ -177,10 +177,10 @@ public class PatientService
 
 ## 🧪 5. Test-Driven Development (TDD) - 100% Coverage
 
-### TDD Red-Green-Refactor Cycle:
+### TDD Red-Green-Refactor Cycle (NUnit):
 1. **🔴 RED:** Failing test schreiben
-2. **🟢 GREEN:** Minimaler Code um Test zu bestehen
-3. **🔄 REFACTOR:** Code verbessern, Tests grün halten
+2. 🟢 GREEN: Minimaler Code um Test zu bestehen
+3. 🔄 REFACTOR: Code verbessern, Tests grün halten
 
 ### Test-Pyramide:
 ```
@@ -190,8 +190,8 @@ public class PatientService
 ```
 
 ### Verbindliche Test-Coverage:
-- **Unit Tests: 100%** - Keine Ausnahme!
-- **Integration Tests: 90%**
+- **Unit Tests:** Sinnvolle Coverage für alle fachlich/technisch relevanten Bereiche (nicht 100% um jeden Preis).
+- **Integration Tests:** Möglichst hohe Coverage für kritische Flows.
 - **E2E Tests: 80%**
 
 ### Test-Struktur:
@@ -207,7 +207,7 @@ tests/
     └── LindebergsHealth.Web.Tests/
 ```
 
-### Test-Naming Convention:
+### Test-Naming Convention (NUnit):
 ```csharp
 [Test]
 public void CreatePatient_WithValidData_ShouldReturnPatientId()
@@ -230,7 +230,7 @@ public void CreatePatient_WithValidData_ShouldReturnPatientId()
 
 Vor **JEDEM** Commit:
 
-- [ ] **Tests:** Alle Tests grün (100% Coverage)
+- [ ] **Tests:** Alle Tests grün, Coverage für alle fachlich/technisch relevanten Bereiche
 - [ ] **Build:** Solution kompiliert ohne Warnings
 - [ ] **Architecture:** 3-Schichten-Struktur eingehalten
 - [ ] **SOLID:** Principles befolgt
@@ -247,7 +247,7 @@ Vor **JEDEM** Commit:
 Ein Feature ist erst **DONE** wenn:
 
 1. ✅ **Code geschrieben** (Clean Code, SOLID)
-2. ✅ **Tests geschrieben** (100% Coverage, TDD)
+2. ✅ **Tests geschrieben** (sinnvolle Coverage, TDD)
 3. ✅ **Dokumentation aktualisiert**
 4. ✅ **Code Review** bestanden
 5. ✅ **CI/CD Pipeline** grün

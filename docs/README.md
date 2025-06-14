@@ -96,6 +96,14 @@ dotnet run --project src/Presentation/LindebergsHealth.BlazorApp
 
 **📖 Setup Guide:** [azure/azure-mcp-setup.md](azure/azure-mcp-setup.md)
 
+## 🧪 Testing & Qualitätssicherung
+
+Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](docs/testkonzept.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](docs/development/development-guidelines.md).
+
+- Tests werden bei jedem Commit/PR automatisch ausgeführt (CI/CD, GitHub Actions).
+- Coverage-Philosophie: Qualität vor Quantität – getestet wird, wo Logik oder Fehleranfälligkeit besteht.
+- Keine Tests für reine Daten- oder Mapping-Entities ohne Logik.
+
 ## 📋 Nächste Schritte
 
 1. ✅ **Projektstruktur** - Erstellt!

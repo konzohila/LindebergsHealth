@@ -37,6 +37,8 @@ Die Datenbank folgt den Prinzipien der Clean Architecture:
 Jede Tabelle enthält:
 - **Soft Delete**: Daten werden nicht physisch gelöscht, sondern nur markiert
 - **Audit Trail**: Wer hat wann was geändert?
+
+> **Hinweis:** Die Soft-Delete- und Audit-Trail-Funktionalität ist im Code direkt in den Entity-Klassen als Properties und Methoden abgebildet (siehe z.B. `BaseEntity`). Auch Lookup-Tabellen sind als eigene Klassen im Code modelliert.
 - **Löschgrund**: Warum wurden Daten gelöscht?
 - **Versionierung**: Alle Änderungen werden nachverfolgbar gespeichert
 

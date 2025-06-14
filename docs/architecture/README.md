@@ -162,19 +162,25 @@ Presentation → Core ← Infrastructure
 
 ## 🧪 Testing-Strategie
 
+Alle fachlich und technisch relevanten Kernfunktionen sind durch automatisierte Unit-Tests (NUnit) abgedeckt. Die Teststrategie ist im [Testkonzept](../../testkonzept.md) dokumentiert. Für Details zu Coding-Standards und Testphilosophie siehe [Development Guidelines](../../development/development-guidelines.md).
+
+- Tests werden bei jedem Commit/PR automatisch ausgeführt (CI/CD, GitHub Actions).
+- Coverage-Philosophie: Qualität vor Quantität – getestet wird, wo Logik oder Fehleranfälligkeit besteht.
+- Keine Tests für reine Daten- oder Mapping-Entities ohne Logik.
+
 ### Unit Tests
-- **Domain Logic** - Geschäftsregeln testen
-- **Application Services** - Use Case Logik
+- **Domain Logic** – Geschäftsregeln testen
+- **Application Services** – Use Case Logik
 - **Mocking** für externe Abhängigkeiten
 
 ### Integration Tests
-- **API Endpoints** - End-to-End Tests
-- **Database Integration** - Repository Tests
-- **External Services** - Service Integration
+- **API Endpoints** – End-to-End Tests
+- **Database Integration** – Repository Tests
+- **External Services** – Service Integration
 
 ### E2E Tests
-- **Blazor Components** - UI Tests
-- **User Workflows** - Komplette Szenarien
+- **Blazor Components** – UI Tests
+- **User Workflows** – Komplette Szenarien
 - **Cross-Browser Testing**
 
 ## 📚 Weiterführende Dokumentation
