@@ -1,10 +1,16 @@
 name: 🔥 Production Deployment
 
 on:
-  push:
-    branches: [ main ]
+  # Nur auf Pull Requests nach main und auf direkte Pushes auf main (z.B. Merge-Commits)
   pull_request:
     branches: [ main ]
+  push:
+    branches: [ main ]
+    # Optional: Ignoriere Pushes auf Feature-Branches explizit
+    # paths-ignore:
+    #   - '**'
+    #   - '!src/**'
+    #   - '!tests/**'
   release:
     types: [ published ]
 

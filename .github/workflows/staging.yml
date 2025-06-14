@@ -1,10 +1,16 @@
 name: 🧪 Staging Deployment
 
 on:
-  push:
-    branches: [ develop ]
+  # Nur auf Pull Requests nach develop und auf direkte Pushes auf develop (z.B. Merge-Commits)
   pull_request:
     branches: [ develop ]
+  push:
+    branches: [ develop ]
+    # Optional: Ignoriere Pushes auf Feature-Branches explizit
+    # paths-ignore:
+    #   - '**'
+    #   - '!src/**'
+    #   - '!tests/**'
 
 env:
   DOTNET_VERSION: '8.0.x'
