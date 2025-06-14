@@ -68,7 +68,7 @@ git push origin feature/patient-management
 ## Deployment-Pipeline
 
 ### Development Branch → Azure Staging
-- **Trigger:** Push/Merge zu `development`
+- **Trigger:** Push/Merge zu `develop`
 - **Pipeline:** `.github/workflows/staging.yml`
 - **Environment:** Staging/Test
 - **URL:** `https://lindebergshealth-staging.azurewebsites.net`
@@ -78,6 +78,26 @@ git push origin feature/patient-management
 - **Pipeline:** `.github/workflows/production.yml`  
 - **Environment:** Production
 - **URL:** `https://lindebergshealth.azurewebsites.net`
+
+---
+
+## Automatisierte Qualitätsprüfungen (CI/CD)
+
+Für alle Pull Requests und Deployments auf `develop` (Staging) und `main` (Production) sind umfangreiche Quality Gates in den GitHub Actions Workflows aktiviert:
+
+- **Code-Formatierung:** Nur korrekt formatierter Code (gemäß Style Guide) wird akzeptiert.
+- **Static Code Analysis:** Der Code muss alle statischen Analysen und Roslyn Analyzer bestehen (alle Warnungen als Fehler).
+- **Dependency Vulnerability Scan:** Alle verwendeten NuGet-Pakete werden auf bekannte Sicherheitslücken geprüft.
+- **Secret Scanning:** GitHub prüft automatisch auf versehentlich eingecheckte Secrets/API-Keys.
+- **Test Coverage Gate:** Die Testabdeckung (Statement Coverage) muss mindestens 80 % betragen, sonst schlägt der Build fehl.
+
+**Merges in `develop` und `main` sind nur möglich, wenn alle Checks erfolgreich sind.**
+
+Details und Anpassungen siehe:
+- `.github/workflows/staging.yml`
+- `.github/workflows/production.yml`
+
+---
 
 ## Konventionen
 
