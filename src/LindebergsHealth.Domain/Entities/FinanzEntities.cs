@@ -5,6 +5,11 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class Rechnung : BaseEntity
 {
+    public bool IsDeleted { get; set; }
+    public string Beschreibung { get; set; } = string.Empty;
+    public decimal Steuerbetrag { get; set; }
+    public decimal Gesamtbetrag { get; set; }
+    public Guid RechnungsstatusId { get; set; }
     public Guid PatientId { get; set; }
     public Guid TerminId { get; set; }
     public decimal Betrag { get; set; }
@@ -48,6 +53,11 @@ public class RechnungHistory : BaseHistoryEntity
 /// </summary>
 public class Gehalt : BaseEntity
 {
+    public decimal Zulagen { get; set; }
+    public decimal Abzuege { get; set; }
+    public decimal Nettogehalt { get; set; }
+    public decimal Steuern { get; set; }
+    public decimal Sozialversicherung { get; set; }
     public Guid MitarbeiterId { get; set; }
     public int Monat { get; set; } // 1-12
     public int Jahr { get; set; }

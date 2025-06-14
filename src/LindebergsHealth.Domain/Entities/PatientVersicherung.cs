@@ -5,6 +5,9 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class PatientVersicherung : BaseEntity
 {
+    public string Versicherungsname { get; set; } = string.Empty;
+    public string Versicherungsnummer { get; set; } = string.Empty;
+    public bool IsDeleted { get; set; }
     public Guid PatientId { get; set; }
     
     // Foreign Keys für Lookup-Tabellen

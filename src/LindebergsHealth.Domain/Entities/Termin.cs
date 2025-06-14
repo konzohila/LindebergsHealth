@@ -5,6 +5,10 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class Termin : BaseEntity
 {
+    public bool IsDeleted { get; set; }
+    public string Titel { get; set; } = string.Empty;
+    public string Beschreibung { get; set; } = string.Empty;
+    public string Notizen { get; set; } = string.Empty;
     public DateTime Datum { get; set; }
     public int DauerMinuten { get; set; }
     public Guid MitarbeiterId { get; set; }

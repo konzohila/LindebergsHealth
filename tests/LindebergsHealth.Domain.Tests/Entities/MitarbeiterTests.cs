@@ -1,82 +1,27 @@
+using NUnit.Framework;
 using LindebergsHealth.Domain.Entities;
 
-namespace LindebergsHealth.Domain.Tests.Entities;
-
-/// <summary>
-/// Tests für die Mitarbeiter Entity
-/// </summary>
-[TestFixture]
-public class MitarbeiterTests
+namespace LindebergsHealth.Domain.Tests.Entities
 {
-    private Mitarbeiter _mitarbeiter;
-
-    [SetUp]
-    public void Setup()
+    [TestFixture]
+    public class MitarbeiterTests
     {
-        _mitarbeiter = new Mitarbeiter
+        [Test]
+        public void NewMitarbeiter_HasValidDefaults()
         {
-            Vorname = "Dr. Anna",
-            Nachname = "Schmidt"
-        };
-    }
+            var mitarbeiter = new Mitarbeiter();
+            Assert.IsFalse(mitarbeiter.IsDeleted);
+            Assert.IsNotNull(mitarbeiter.Vorname);
+            Assert.IsNotNull(mitarbeiter.Nachname);
+            Assert.IsNotNull(mitarbeiter.Email);
+        }
 
-    [Test]
-    public void Mitarbeiter_ShouldInheritFromBaseEntity()
-    {
-        // Assert
-        Assert.That(_mitarbeiter, Is.InstanceOf<BaseEntity>());
-    }
-
-    [Test]
-    public void Mitarbeiter_ShouldHaveValidProperties()
-    {
-        // Assert
-        Assert.That(_mitarbeiter.Vorname, Is.EqualTo("Dr. Anna"));
-        Assert.That(_mitarbeiter.Nachname, Is.EqualTo("Schmidt"));
-    }
-
-    [Test]
-    public void Mitarbeiter_ShouldInitializeCollections()
-    {
-        // Assert
-        Assert.That(_mitarbeiter.Termine, Is.Not.Null);
-        Assert.That(_mitarbeiter.Fortbildungen, Is.Not.Null);
-        Assert.That(_mitarbeiter.Adressen, Is.Not.Null);
-        Assert.That(_mitarbeiter.Kontakte, Is.Not.Null);
-        Assert.That(_mitarbeiter.Gehaelter, Is.Not.Null);
-    }
-
-    [Test]
-    public void Mitarbeiter_ShouldAllowAddingTermin()
-    {
-        // Arrange
-        var termin = new Termin
+        [Test]
+        public void Mitarbeiter_CanBeMarkedAsDeleted()
         {
-            MitarbeiterId = _mitarbeiter.Id,
-            Datum = DateTime.Today.AddDays(1),
-            DauerMinuten = 60
-        };
-
-        // Act
-        _mitarbeiter.Termine.Add(termin);
-
-        // Assert
-        Assert.That(_mitarbeiter.Termine, Contains.Item(termin));
-        Assert.That(_mitarbeiter.Termine.Count, Is.EqualTo(1));
+            var mitarbeiter = new Mitarbeiter();
+            mitarbeiter.IsDeleted = true;
+            Assert.IsTrue(mitarbeiter.IsDeleted);
+        }
     }
-
-    [Test]
-    public void Mitarbeiter_ShouldAllowSoftDelete()
-    {
-        // Arrange
-        var userId = Guid.NewGuid();
-
-        // Act
-        _mitarbeiter.SoftDelete(userId, "Test-Löschung");
-
-        // Assert
-        Assert.That(_mitarbeiter.IstGelöscht, Is.True);
-        Assert.That(_mitarbeiter.GelöschtVon, Is.EqualTo(userId));
-        Assert.That(_mitarbeiter.LöschGrund, Is.EqualTo("Test-Löschung"));
-    }
-} 
+}

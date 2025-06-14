@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
-    <ProjectReference Include="..\..\DataAccess\LindebergsHealth.DataAccess\LindebergsHealth.DataAccess.csproj" />
+    
   </ItemGroup>
 
 </Project>

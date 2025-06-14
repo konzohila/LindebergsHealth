@@ -5,6 +5,7 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class Adresse : BaseEntity
 {
+    public bool IsDeleted { get; set; }
     public string Strasse { get; set; } = string.Empty;
     public string Hausnummer { get; set; } = string.Empty;
     public string Zusatz { get; set; } = string.Empty; // c/o, Stockwerk, etc.
@@ -50,6 +51,7 @@ public class AdresseHistory : BaseHistoryEntity
 /// </summary>
 public class Kontakt : BaseEntity
 {
+    public bool IsDeleted { get; set; }
     // Foreign Key für Kontakttyp-Lookup
     public Guid KontakttypId { get; set; }
     public virtual Kontakttyp Kontakttyp { get; set; } = null!;

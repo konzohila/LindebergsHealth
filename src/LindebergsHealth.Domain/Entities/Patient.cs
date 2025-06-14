@@ -5,6 +5,12 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class Patient : BaseEntity
 {
+    public string Telefon { get; set; } = string.Empty;
+    public string Versicherungsnummer { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public bool IsDeleted { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime ModifiedAt { get; set; }
     public string Vorname { get; set; } = string.Empty;
     public string Nachname { get; set; } = string.Empty;
     public DateTime Geburtsdatum { get; set; }

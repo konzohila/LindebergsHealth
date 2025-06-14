@@ -5,6 +5,7 @@ namespace LindebergsHealth.Domain.Entities;
 /// </summary>
 public class PatientErweiterung : BaseEntity
 {
+    public string Notizen { get; set; } = string.Empty;
     public Guid PatientId { get; set; }
     
     // Foreign Keys für Lookup-Tabellen
