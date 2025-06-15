@@ -61,7 +61,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: 🧪 Run tests with coverage
-      run: dotnet test --configuration Debug --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./TestResults -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Include="[LindebergsHealth.*]*"
+      run: dotnet test --configuration Debug --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./TestResults
     - name: 🛠️ Install xmllint
       run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
