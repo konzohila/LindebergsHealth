@@ -59,24 +59,8 @@ jobs:
     - name: 🔨 Build solution
       run: dotnet build --configuration Release --no-restore
       
-    - name: 🧪 Run tests with coverage
-      run: dotnet test --configuration Debug --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./TestResults
-    - name: 🛠️ Install xmllint
-      run: sudo apt-get update && sudo apt-get install -y libxml2-utils
-
-    # - name: 📊 Check coverage gate (min. 80%)
-    #   run: |
-    #     xml_file=$(find ./TestResults -name 'coverage.cobertura.xml' | head -n 1)
-    #     if [ -z "$xml_file" ]; then
-    #       echo "No coverage report found!"; exit 1;
-    #     fi
-    #     coverage=$(xmllint --xpath 'string(//coverage/@line-rate)' "$xml_file")
-    #     percent=$(awk "BEGIN {printf \"%.0f\", $coverage * 100}")
-    #     echo "Coverage: $percent%"
-    #     if [ "$percent" -lt 80 ]; then
-    #       echo "Coverage ($percent%) is below required threshold (80%)!"; exit 1;
-    #     fi
-    #   shell: bash
+    - name: 🧪 Run tests
+      run: dotnet test --configuration Debug --no-build --verbosity normal
   
   deploy-staging:
     name: 🚀 Deploy to Azure Staging
