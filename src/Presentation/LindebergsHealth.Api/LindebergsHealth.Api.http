@@ -1,6 +1,24 @@
 @LindebergsHealth.Api_HostAddress = http://localhost:5196
 
-GET {{LindebergsHealth.Api_HostAddress}}/weatherforecast/
+# Alle Termine abrufen
+GET {{LindebergsHealth.Api_HostAddress}}/api/Termin
 Accept: application/json
+
+###
+
+# Neuen Termin anlegen
+POST {{LindebergsHealth.Api_HostAddress}}/api/Termin
+Content-Type: application/json
+Accept: application/json
+
+{
+  "titel": "Test-Termin aus .http",
+  "beschreibung": "Erstellt via REST-Client",
+  "datum": "2025-06-16T10:00:00",
+  "dauerMinuten": 60,
+  "mitarbeiterId": "00000000-0000-0000-0000-000000000001",
+  "raumId": "00000000-0000-0000-0000-000000000002",
+  "kategorieId": "00000000-0000-0000-0000-000000000003"
+}
 
 ###

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
+using LindebergsHealth.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

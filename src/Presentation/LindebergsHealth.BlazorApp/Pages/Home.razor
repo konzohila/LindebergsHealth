@@ -1,39 +1,89 @@
 @page "/"
 @using Syncfusion.Blazor.Schedule
 
+
 <PageTitle>Kalender</PageTitle>
 
 <SfSchedule TValue="AppointmentData" Height="650px">
     <ScheduleEventSettings TValue="AppointmentData" DataSource="@DataSource" />
 </SfSchedule>
 
+<button class="btn btn-primary mt-3" @onclick="AddTestTermin">Test-Termin anlegen</button>
+
+@inject HttpClient Http
+@using LindebergsHealth.Domain.Entities
 @code {
+    // ViewModel für Syncfusion Scheduler (Mapping von Termin)
     public class AppointmentData
     {
-        public int Id { get; set; }
-        public string Subject { get; set; }
+        public Guid Id { get; set; }
+        public string Subject { get; set; } = string.Empty;
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public bool IsAllDay { get; set; }
     }
 
-    List<AppointmentData> DataSource = new List<AppointmentData>
+    List<AppointmentData> DataSource = new();
+
+    protected override async Task OnInitializedAsync()
     {
-        new AppointmentData
+        await LoadTermine();
+    }
+
+    private async Task LoadTermine()
+    {
+        var termine = await Http.GetFromJsonAsync<List<Termin>>("api/Termin");
+        if (termine is not null)
         {
-            Id = 1,
-            Subject = "Projektstart",
-            StartTime = DateTime.Today.AddHours(10),
-            EndTime = DateTime.Today.AddHours(12),
-            IsAllDay = false
-        },
-        new AppointmentData
-        {
-            Id = 2,
-            Subject = "Team Meeting",
-            StartTime = DateTime.Today.AddDays(1).AddHours(14),
-            EndTime = DateTime.Today.AddDays(1).AddHours(15),
-            IsAllDay = false
+            DataSource = termine.Select(t => new AppointmentData
+            {
+                Id = t.Id,
+                Subject = t.Titel,
+                StartTime = t.Datum,
+                EndTime = t.Datum.AddMinutes(t.DauerMinuten),
+                IsAllDay = false // ggf. Feld ergänzen
+            }).ToList();
         }
-    };
+    }
+
+    private async Task AddTestTermin()
+    {
+        var newTermin = new Termin
+        {
+            // TODO: Echte Werte setzen!
+            Titel = "Test-Termin",
+            Beschreibung = "Automatisch angelegt",
+            Datum = DateTime.Now.AddHours(1),
+            DauerMinuten = 60,
+            MitarbeiterId = Guid.NewGuid(), // Hier echten Wert setzen!
+            RaumId = Guid.NewGuid(),         // Hier echten Wert setzen!
+            KategorieId = Guid.NewGuid()     // Hier echten Wert setzen!
+            // PatientId = ...
+        };
+        var cmd = new { Termin = newTermin };
+        var response = await Http.PostAsJsonAsync("api/Termin", cmd);
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadTermine();
+        }
+    }
+
+    private async Task UpdateTermin(Termin termin)
+    {
+        var cmd = new { Termin = termin };
+        var response = await Http.PutAsJsonAsync($"api/Termin/{termin.Id}", cmd);
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadTermine();
+        }
+    }
+
+    private async Task DeleteTermin(Guid id)
+    {
+        var response = await Http.DeleteAsync($"api/Termin/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadTermine();
+        }
+    }
 }

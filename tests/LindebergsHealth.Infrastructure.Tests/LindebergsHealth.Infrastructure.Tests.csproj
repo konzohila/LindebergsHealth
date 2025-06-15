@@ -33,15 +33,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\src\Presentation\LindebergsHealth.API\appsettings.Development.json">
+    <None Include="..\..\src\Presentation\LindebergsHealth.Api\appsettings.Development.json">
       <Link>appsettings.Development.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\src\Presentation\LindebergsHealth.API\appsettings.Staging.json">
+    <None Include="..\..\src\Presentation\LindebergsHealth.Api\appsettings.Staging.json">
       <Link>appsettings.Staging.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\src\Presentation\LindebergsHealth.API\appsettings.Production.json">
+    <None Include="..\..\src\Presentation\LindebergsHealth.Api\appsettings.Production.json">
       <Link>appsettings.Production.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
