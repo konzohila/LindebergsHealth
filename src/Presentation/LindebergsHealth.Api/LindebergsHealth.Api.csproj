@@ -14,9 +14,5 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Business\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
-    <ProjectReference Include="..\..\DataAccess\LindebergsHealth.DataAccess\LindebergsHealth.DataAccess.csproj" />
-  </ItemGroup>
 
 </Project>

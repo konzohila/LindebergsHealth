@@ -1,7 +1,0 @@
-# Build & CI/CD
-
-Dieser Ordner enthält:
-- Docker Compose Dateien
-- GitHub Actions / Azure DevOps Pipelines
-- Deployment Konfigurationen
-- Build Skripte 

@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Presentation\LindebergsHealth.Api\LindebergsHealth.Api.csproj" />
-    <ProjectReference Include="..\..\..\src\Business\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
+    
   </ItemGroup>
 
 </Project>

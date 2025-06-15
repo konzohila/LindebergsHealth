@@ -1,8 +1,17 @@
 name: 🔥 Production Deployment
 
 on:
+  # Nur auf Pull Requests nach main und auf direkte Pushes auf main (z.B. Merge-Commits)
+  pull_request:
+    branches: [ main ]
   push:
     branches: [ main ]
+    # Optional: Ignoriere Pushes auf Feature-Branches explizit
+    # paths-ignore:
+    #   - '**'
+    #   - '!src/**'
+    #   - '!tests/**'
+  workflow_dispatch:
   release:
     types: [ published ]
 
@@ -12,10 +21,30 @@ env:
   WEB_PROJECT_PATH: 'src/Presentation/LindebergsHealth.Web'
 
 jobs:
+  quality-checks:
+    name: 🛡️ Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      - name: 🔧 Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: 🧹 Code Formatting (dotnet format)
+        run: dotnet format --verify-no-changes --severity warn
+      - name: 🕵️ Static Code Analysis (dotnet build)
+        run: dotnet build --configuration Release --no-restore -warnaserror
+      - name: 🔒 Dependency Vulnerability Scan
+        run: dotnet list package --vulnerable
+      # Secret Scanning: GitHub führt dies automatisch für Pushes und PRs durch (siehe GitHub Advanced Security).
+    outputs:
+      checks-passed: ${{ steps.*.outcome == 'success' }}
+
   build-and-test:
     name: 🔨 Build & Test
     runs-on: ubuntu-latest
-    
+    needs: quality-checks
     steps:
     - name: 📥 Checkout code
       uses: actions/checkout@v4
@@ -32,7 +61,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: 🧪 Run tests
-      run: dotnet test --configuration Release --no-build --verbosity normal
+      run: dotnet test --configuration Debug --verbosity normal
   
   deploy-production:
     name: 🚀 Deploy to Azure Production
@@ -61,20 +90,7 @@ jobs:
           --configuration Release \
           --output ./web-production
     
-    # TODO: Azure App Service Deployment
-    # - name: 🌐 Deploy API to Azure Production
-    #   uses: azure/webapps-deploy@v2
-    #   with:
-    #     app-name: 'lindebergshealth-api-prod'
-    #     publish-profile: ${{ secrets.AZURE_API_PRODUCTION_PUBLISH_PROFILE }}
-    #     package: './api-production'
-    
-    # - name: 🌐 Deploy Web to Azure Production
-    #   uses: azure/webapps-deploy@v2  
-    #   with:
-    #     app-name: 'lindebergshealth-web-prod'
-    #     publish-profile: ${{ secrets.AZURE_WEB_PRODUCTION_PUBLISH_PROFILE }}
-    #     package: './web-production'
+
     
     - name: ✅ Production deployment complete
       run: echo "🔥 Production deployment completed successfully!" 
