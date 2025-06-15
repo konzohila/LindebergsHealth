@@ -1,6 +1,0 @@
-@LindebergsHealth.Api_HostAddress = http://localhost:5196
-
-GET {{LindebergsHealth.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
