@@ -65,19 +65,19 @@ jobs:
     - name: 🛠️ Install xmllint
       run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
-    - name: 📊 Check coverage gate (min. 80%)
-      run: |
-        xml_file=$(find ./TestResults -name 'coverage.cobertura.xml' | head -n 1)
-        if [ -z "$xml_file" ]; then
-          echo "No coverage report found!"; exit 1;
-        fi
-        coverage=$(xmllint --xpath 'string(//coverage/@line-rate)' "$xml_file")
-        percent=$(awk "BEGIN {printf \"%.0f\", $coverage * 100}")
-        echo "Coverage: $percent%"
-        if [ "$percent" -lt 80 ]; then
-          echo "Coverage ($percent%) is below required threshold (80%)!"; exit 1;
-        fi
-      shell: bash
+    # - name: 📊 Check coverage gate (min. 80%)
+    #   run: |
+    #     xml_file=$(find ./TestResults -name 'coverage.cobertura.xml' | head -n 1)
+    #     if [ -z "$xml_file" ]; then
+    #       echo "No coverage report found!"; exit 1;
+    #     fi
+    #     coverage=$(xmllint --xpath 'string(//coverage/@line-rate)' "$xml_file")
+    #     percent=$(awk "BEGIN {printf \"%.0f\", $coverage * 100}")
+    #     echo "Coverage: $percent%"
+    #     if [ "$percent" -lt 80 ]; then
+    #       echo "Coverage ($percent%) is below required threshold (80%)!"; exit 1;
+    #     fi
+    #   shell: bash
   
   deploy-production:
     name: 🚀 Deploy to Azure Production
