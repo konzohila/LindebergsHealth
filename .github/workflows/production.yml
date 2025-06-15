@@ -61,7 +61,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: 🧪 Run tests
-      run: dotnet test --configuration Debug --no-build --verbosity normal
+      run: dotnet test --configuration Debug --verbosity normal
   
   deploy-production:
     name: 🚀 Deploy to Azure Production
