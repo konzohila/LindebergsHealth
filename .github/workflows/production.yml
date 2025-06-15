@@ -11,6 +11,7 @@ on:
     #   - '**'
     #   - '!src/**'
     #   - '!tests/**'
+  workflow_dispatch:
   release:
     types: [ published ]
 
