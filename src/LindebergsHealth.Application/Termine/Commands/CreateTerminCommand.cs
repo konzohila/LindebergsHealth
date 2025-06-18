@@ -1,19 +1,16 @@
 using MediatR;
-using LindebergsHealth.Domain.Entities;
 using System;
+using LindebergsHealth.Application.Termine.Dto;
+using MediatR;
 
 namespace LindebergsHealth.Application.Termine.Commands
 {
-    public class CreateTerminCommand : IRequest<Termin>
+    public class CreateTerminCommand : IRequest<TerminDetailDto>
     {
-        public string Titel { get; set; } = string.Empty;
-        public string Beschreibung { get; set; } = string.Empty;
-        public DateTime Datum { get; set; }
-        public int DauerMinuten { get; set; }
-        public Guid MitarbeiterId { get; set; }
-        public Guid? PatientId { get; set; }
-        public Guid RaumId { get; set; }
-        public Guid KategorieId { get; set; }
-        // ... weitere Felder nach Bedarf
+        public CreateTerminDto Termin { get; set; }
+        public CreateTerminCommand(CreateTerminDto termin)
+        {
+            Termin = termin;
+        }
     }
 }

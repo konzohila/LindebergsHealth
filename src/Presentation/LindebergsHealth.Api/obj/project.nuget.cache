@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zo4S5rW0Qh8=",
+  "dgSpecHash": "qH66npZEQLo=",
   "success": true,
   "projectFilePath": "/Users/svenkonz/Documents/GitHub/LindebergsHealth/src/Presentation/LindebergsHealth.Api/LindebergsHealth.Api.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "/Users/svenkonz/.nuget/packages/azure.security.keyvault.certificates/4.5.1/azure.security.keyvault.certificates.4.5.1.nupkg.sha512",
     "/Users/svenkonz/.nuget/packages/azure.security.keyvault.secrets/4.5.0/azure.security.keyvault.secrets.4.5.0.nupkg.sha512",
     "/Users/svenkonz/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/svenkonz/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",
+    "/Users/svenkonz/.nuget/packages/mapster.core/1.2.1/mapster.core.1.2.1.nupkg.sha512",
     "/Users/svenkonz/.nuget/packages/mediatr/12.5.0/mediatr.12.5.0.nupkg.sha512",
     "/Users/svenkonz/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/svenkonz/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.0/microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",

@@ -2,8 +2,13 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using LindebergsHealth.Infrastructure;
+using LindebergsHealth.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Mapster-Mappings registrieren
+LindebergsHealth.Application.MapsterRegistration.RegisterMappings();
 
 // Add Azure AD Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -14,6 +19,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters.ValidateIssuer = true;
     },
     options => { builder.Configuration.Bind("AzureAd", options); });
+
+// MediatR registrieren (wichtig für TerminController)
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<LindebergsHealth.Application.Termine.Queries.GetAllTermineQuery>());
+
+// DbContext für EF Core registrieren
+builder.Services.AddDbContext<LindebergsHealthDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Infrastruktur-Services (Repositories etc.) registrieren
+builder.Services.AddInfrastructure();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

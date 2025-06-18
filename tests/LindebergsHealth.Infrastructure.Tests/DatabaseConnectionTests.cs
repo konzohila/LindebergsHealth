@@ -6,20 +6,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.EnvironmentVariables;
 using Microsoft.Extensions.Configuration.Json;
-using NUnit.Framework;
+using Xunit;
 
 namespace LindebergsHealth.Infrastructure.Tests.Integration
 {
-    [TestFixture]
     public class DatabaseConnectionTests : IDisposable
     {
         private LindebergsHealthDbContext? _dbContext;
 
-        [TestCase("appsettings.Development.json")]
-        [TestCase("appsettings.Staging.json")]
-        [TestCase("appsettings.Production.json")]
-        [Category("Integration")]
-        [Description("Überprüft, ob eine Verbindung zur Azure SQL Datenbank für alle Umgebungen hergestellt werden kann")]
+        /// <summary>
+        /// Überprüft, ob eine Verbindung zur Azure SQL Datenbank für alle Umgebungen hergestellt werden kann
+        /// </summary>
+        [Theory]
+        [InlineData("appsettings.Development.json")]
+        [InlineData("appsettings.Staging.json")]
+        [InlineData("appsettings.Production.json")]
         public async Task CanConnectToAzureSql(string settingsFile)
         {
             var configBuilder = new ConfigurationBuilder()
@@ -31,7 +32,7 @@ namespace LindebergsHealth.Infrastructure.Tests.Integration
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             if (string.IsNullOrEmpty(connectionString))
-                Assert.Fail($"Connection string 'DefaultConnection' nicht gefunden in {settingsFile}");
+                Xunit.Assert.False(true, $"Connection string 'DefaultConnection' nicht gefunden in {settingsFile}");
 
             var options = new DbContextOptionsBuilder<LindebergsHealthDbContext>()
                 .UseSqlServer(connectionString)
@@ -40,7 +41,7 @@ namespace LindebergsHealth.Infrastructure.Tests.Integration
             _dbContext = new LindebergsHealthDbContext(options);
 
             bool canConnect = await _dbContext.Database.CanConnectAsync();
-            Assert.That(canConnect, Is.True, $"Die Verbindung zur Azure SQL Datenbank ({settingsFile}) konnte nicht hergestellt werden.");
+            Xunit.Assert.True(canConnect, $"Die Verbindung zur Azure SQL Datenbank ({settingsFile}) konnte nicht hergestellt werden.");
         }
 
         public void Dispose()
