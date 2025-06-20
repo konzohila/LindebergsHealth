@@ -10,11 +10,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.16" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="8.0.16" />
-    <PackageReference Include="Syncfusion.Blazor.Schedule" Version="29.2.10" />
+    <PackageReference Include="Syncfusion.Blazor" Version="29.2.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\LindebergsHealth.Domain\LindebergsHealth.Domain.csproj" />
+    <ProjectReference Include="..\..\LindebergsHealth.Application\LindebergsHealth.Application.csproj" />
   </ItemGroup>
 
 </Project>

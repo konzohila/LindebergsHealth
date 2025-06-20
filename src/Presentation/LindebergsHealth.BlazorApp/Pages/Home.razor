@@ -1,29 +1,28 @@
 @page "/"
 @using Syncfusion.Blazor.Schedule
-
+@using LindebergsHealth.BlazorApp.Models
+@using LindebergsHealth.Application.Termine.Dto
 
 <PageTitle>Kalender</PageTitle>
 
-<SfSchedule TValue="AppointmentData" Height="650px">
-    <ScheduleEventSettings TValue="AppointmentData" DataSource="@DataSource" />
+<SfSchedule TValue="TerminUiModel" Height="650px">
+    <ScheduleEventSettings TValue="TerminUiModel" DataSource="@DataSource">
+        <ScheduleEventFields
+            Id="Id"
+            Subject="Titel"
+            StartTime="Datum"
+            EndTime="EndTime"
+            Description="Beschreibung"
+            Location="RaumName" />
+    </ScheduleEventSettings>
 </SfSchedule>
 
 <button class="btn btn-primary mt-3" @onclick="AddTestTermin">Test-Termin anlegen</button>
 
 @inject HttpClient Http
-@using LindebergsHealth.Domain.Entities
-@code {
-    // ViewModel für Syncfusion Scheduler (Mapping von Termin)
-    public class AppointmentData
-    {
-        public Guid Id { get; set; }
-        public string Subject { get; set; } = string.Empty;
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public bool IsAllDay { get; set; }
-    }
 
-    List<AppointmentData> DataSource = new();
+@code {
+    List<TerminUiModel> DataSource = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -32,46 +31,57 @@
 
     private async Task LoadTermine()
     {
-        var termine = await Http.GetFromJsonAsync<List<Termin>>("api/Termin");
-        if (termine is not null)
+        try
         {
-            DataSource = termine.Select(t => new AppointmentData
+            var termineDtos = await Http.GetFromJsonAsync<List<TerminDetailDto>>("api/Termin");
+            if (termineDtos is not null)
             {
-                Id = t.Id,
-                Subject = t.Titel,
-                StartTime = t.Datum,
-                EndTime = t.Datum.AddMinutes(t.DauerMinuten),
-                IsAllDay = false // ggf. Feld ergänzen
-            }).ToList();
+                DataSource = termineDtos.ToUiModels();
+            }
+        }
+        catch (Exception ex)
+        {
+            // Optional: Logging, UI-Fehleranzeige etc.
+            DataSource = new List<TerminUiModel>();
         }
     }
 
     private async Task AddTestTermin()
     {
-        var newTermin = new Termin
+        var newTermin = new CreateTerminDto
         {
-            // TODO: Echte Werte setzen!
             Titel = "Test-Termin",
             Beschreibung = "Automatisch angelegt",
             Datum = DateTime.Now.AddHours(1),
             DauerMinuten = 60,
-            MitarbeiterId = Guid.NewGuid(), // Hier echten Wert setzen!
-            RaumId = Guid.NewGuid(),         // Hier echten Wert setzen!
-            KategorieId = Guid.NewGuid()     // Hier echten Wert setzen!
-            // PatientId = ...
+            // Dummy-IDs für Demo, ggf. aus UI holen
+            MitarbeiterId = null,
+            RaumId = null,
+            KategorieId = null,
+            PatientId = null
         };
-        var cmd = new { Termin = newTermin };
-        var response = await Http.PostAsJsonAsync("api/Termin", cmd);
+        var response = await Http.PostAsJsonAsync("api/Termin", newTermin);
         if (response.IsSuccessStatusCode)
         {
             await LoadTermine();
         }
     }
 
-    private async Task UpdateTermin(Termin termin)
+    private async Task UpdateTermin(TerminUiModel termin)
     {
-        var cmd = new { Termin = termin };
-        var response = await Http.PutAsJsonAsync($"api/Termin/{termin.Id}", cmd);
+        var updateDto = new UpdateTerminDto
+        {
+            Id = termin.Id,
+            Titel = termin.Titel,
+            Beschreibung = termin.Beschreibung,
+            Datum = termin.Datum,
+            DauerMinuten = termin.DauerMinuten,
+            MitarbeiterId = null,
+            PatientId = null,
+            RaumId = null,
+            KategorieId = null
+        };
+        var response = await Http.PutAsJsonAsync($"api/Termin/{termin.Id}", updateDto);
         if (response.IsSuccessStatusCode)
         {
             await LoadTermine();
